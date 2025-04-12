@@ -1,0 +1,13 @@
+<nav class="navbar">
+    <ul class="">
+      {{ range site.Menus.main }}
+      <li>
+        <a href="{{ .URL }}" class="text-gray-700 dark:text-slate-200 hover:text-orange-500">
+          {{ .Name }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+    {{ partial "ThemeToggle.html" . }}
+  </nav>
+  

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on My New Hugo Site</title>
+    <link>https://example.org/tags/</link>
+    <description>Recent content in Tags on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 20 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Future</title>
+      <link>https://example.org/tags/future/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/future/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Technology</title>
+      <link>https://example.org/tags/technology/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/technology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trends</title>
+      <link>https://example.org/tags/trends/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/trends/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Web Development</title>
+      <link>https://example.org/tags/web-development/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/web-development/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Plant-Based</title>
+      <link>https://example.org/tags/plant-based/</link>
+      <pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/plant-based/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Quick Recipes</title>
+      <link>https://example.org/tags/quick-recipes/</link>
+      <pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/quick-recipes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vegan Meals</title>
+      <link>https://example.org/tags/vegan-meals/</link>
+      <pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/vegan-meals/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Comfort Food</title>
+      <link>https://example.org/tags/comfort-food/</link>
+      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/comfort-food/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cultural Significance</title>
+      <link>https://example.org/tags/cultural-significance/</link>
+      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/cultural-significance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Food Stories</title>
+      <link>https://example.org/tags/food-stories/</link>
+      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/food-stories/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Family Cooking</title>
+      <link>https://example.org/tags/family-cooking/</link>
+      <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/family-cooking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kitchen Hacks</title>
+      <link>https://example.org/tags/kitchen-hacks/</link>
+      <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/kitchen-hacks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Time-Saving</title>
+      <link>https://example.org/tags/time-saving/</link>
+      <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/time-saving/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Budget-Friendly</title>
+      <link>https://example.org/tags/budget-friendly/</link>
+      <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/budget-friendly/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Cooking Tips</title>
+      <link>https://example.org/tags/cooking-tips/</link>
+      <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://example.org/tags/cooking-tips/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

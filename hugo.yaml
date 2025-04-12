@@ -1,0 +1,57 @@
+baseURL: "https://example.org/"
+languageCode: "en-us"
+title: "My New Hugo Site"
+
+pagination:
+  pagerSize: 5
+
+taxonomies:
+  tag: tags
+  category: categories
+  author: authors
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
+
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 2
+
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 3
+
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 4
+
+markup:
+  markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNoStart: 1
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    style: monokai
+    tabWidth: 4
+    wrapperClass: highlight
+  goldmark:
+    renderer:
+      unsafe: true
+  tableOfContents:
+    endLevel: 3
+    ordered: false
+    startLevel: 2

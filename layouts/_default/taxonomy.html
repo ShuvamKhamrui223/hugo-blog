@@ -1,0 +1,12 @@
+{{ define "main" }}
+<section class="post-grid">
+  {{ range .Pages }}
+  <a href="{{.RelPermalink}}">
+    <div class="taxonomy-card">
+      <p class="">{{.LinkTitle}}</p>
+    </div>
+  </a>
+
+  {{ end }}
+</section>
+{{ end }}

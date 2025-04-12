@@ -1,0 +1,36 @@
+{{ define "main" }}
+<section class="blog-layout">
+  <article class="blog-content">
+    {{ .Content }}
+    <header class="blog-header">
+      <div class="">
+        wriiten by <span class=""> {{ .Params.author }} </span>
+      </div>
+      <div class="">
+        published on {{ .PublishDate| time.Format ":date_medium" }}
+      </div>
+      {{ range .Params.categories }}
+      <a href="/categories/{{ . | urlize }}">
+        <p class="post-category">{{.}}</p>
+      </a>
+      {{end}}
+    </header>
+  </article>
+
+  <aside class="blog-toc-mobile">
+    <details>
+      <summary>table of content</summary>
+      {{ .TableOfContents }}
+    </details>
+  </aside>
+</section>
+
+<section class="related-posts">
+  <h4>related posts</h4>
+  {{ with site.RegularPages.Related . | first 5 }} {{ range . }}
+  <a href="{{.RelPermalink}}">
+    <p class="related-post-title">{{.LinkTitle}}</p>
+  </a>
+  {{ end }} {{ end }}
+</section>
+{{ end }}

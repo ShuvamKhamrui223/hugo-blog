@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+
+
+    
+     <link rel="stylesheet" href="/css/style.css" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  rel="stylesheet"
+/>
+
+</head>
+  <body>
+    <nav class="navbar">
+    <ul class="">
+      
+      <li>
+        <a href="/" class="text-gray-700 dark:text-slate-200 hover:text-orange-500">
+          Home
+        </a>
+      </li>
+      
+      <li>
+        <a href="/about/" class="text-gray-700 dark:text-slate-200 hover:text-orange-500">
+          About
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags/" class="text-gray-700 dark:text-slate-200 hover:text-orange-500">
+          Tags
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories/" class="text-gray-700 dark:text-slate-200 hover:text-orange-500">
+          Categories
+        </a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+  
+    <main>
+<section class="blog-layout">
+  <article class="blog-content">
+    <h2 id="react-middleware-authentication">React middleware authentication</h2>
+<p>To implement a middleware-like system in React.js, you can achieve this by using React Router and a combination of higher-order components (HOCs) or wrapper components for layouts. Here’s how you can structure it:</p>
+<h2 id="steps-to-implement">Steps to Implement</h2>
+<ol>
+<li>
+<p><strong>Install Dependencies</strong>: Ensure you have <code>react-router-dom</code> installed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install react-router-dom
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Create Two Layout Components</strong>:</p>
+<ul>
+<li><strong>AuthLayout</strong>: For authentication pages like Sign In and Register.</li>
+<li><strong>AppLayout</strong>: For the main application with a header, footer, and other components.</li>
+</ul>
+</li>
+<li>
+<p><strong>Set Up Routes</strong>:
+Use <code>react-router-dom</code> to define routes and implement a custom <code>ProtectedRoute</code> component to handle authentication checks.</p>
+</li>
+<li>
+<p><strong>Middleware-like Logic</strong>:
+Use a custom function or HOC to determine whether the user is authenticated and redirect them accordingly.</p>
+</li>
+</ol>
+<hr>
+<h3 id="code-example">Code Example</h3>
+<h4 id="apptsx"><code>App.tsx</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#66d9ef">as</span> <span style="color:#a6e22e">Router</span>, <span style="color:#a6e22e">Route</span>, <span style="color:#a6e22e">Routes</span>, <span style="color:#a6e22e">Navigate</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AuthLayout</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./layouts/AuthLayout&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AppLayout</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./layouts/AppLayout&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SignIn</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./pages/SignIn&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Register</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./pages/Register&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">HomePage</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./pages/HomePage&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Dashboard</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./pages/Dashboard&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">isAuthenticated</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Replace with your actual authentication logic
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#f92672">!!</span><span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#39;authToken&#39;</span>);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ProtectedRoute</span>: <span style="color:#66d9ef">React.FC</span><span style="color:#f92672">&lt;</span>{ <span style="color:#a6e22e">children</span>: <span style="color:#66d9ef">React.ReactNode</span> }<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">children</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">isAuthenticated</span>() <span style="color:#f92672">?</span> &lt;&gt;{<span style="color:#a6e22e">children</span>}&lt;/&gt; <span style="color:#f92672">:</span> &lt;<span style="color:#f92672">Navigate</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/signin&#34;</span> /&gt;;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span>: <span style="color:#66d9ef">React.FC</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">Router</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Routes</span>&gt;
+</span></span><span style="display:flex;"><span>        {<span style="color:#75715e">/* Auth Layout */</span>}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">AuthLayout</span> /&gt;}&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/signin&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">SignIn</span> /&gt;} /&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/register&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">Register</span> /&gt;} /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#75715e">/* App Layout */</span>}
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">AppLayout</span> /&gt;}&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">ProtectedRoute</span>&gt;&lt;<span style="color:#f92672">HomePage</span> /&gt;&lt;/<span style="color:#f92672">ProtectedRoute</span>&gt;} /&gt;
+</span></span><span style="display:flex;"><span>          &lt;<span style="color:#f92672">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/dashboard&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">ProtectedRoute</span>&gt;&lt;<span style="color:#f92672">Dashboard</span> /&gt;&lt;/<span style="color:#f92672">ProtectedRoute</span>&gt;} /&gt;
+</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">Route</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">Routes</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">Router</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
+</span></span></code></pre></div><hr>
+<h4 id="layoutsauthlayouttsx"><code>layouts/AuthLayout.tsx</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Outlet</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">AuthLayout</span>: <span style="color:#66d9ef">React.FC</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Auth</span> <span style="color:#a6e22e">Layout</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">Outlet</span> /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">AuthLayout</span>;
+</span></span></code></pre></div><hr>
+<h4 id="layoutsapplayouttsx"><code>layouts/AppLayout.tsx</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Outlet</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">AppLayout</span>: <span style="color:#66d9ef">React.FC</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">header</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">h1</span>&gt;<span style="color:#a6e22e">Header</span>&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">header</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">main</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">Outlet</span> /&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">main</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">footer</span>&gt;
+</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">p</span>&gt;<span style="color:#a6e22e">Footer</span>&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;/<span style="color:#f92672">footer</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">AppLayout</span>;
+</span></span></code></pre></div><hr>
+<h4 id="example-pages-signintsx-registertsx-etc">Example Pages (<code>SignIn.tsx</code>, <code>Register.tsx</code>, etc.)</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SignIn</span>: <span style="color:#66d9ef">React.FC</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleLogin</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#e6db74">&#39;authToken&#39;</span>, <span style="color:#e6db74">&#39;your-token&#39;</span>);
+</span></span><span style="display:flex;"><span>    window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/&#39;</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">h2</span>&gt;<span style="color:#a6e22e">Sign</span> <span style="color:#a6e22e">In</span>&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">onClick</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">handleLogin</span>}&gt;<span style="color:#a6e22e">Log</span> <span style="color:#a6e22e">In</span>&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">SignIn</span>;
+</span></span></code></pre></div><hr>
+<h3 id="key-features">Key Features</h3>
+<ol>
+<li>
+<p><strong><code>ProtectedRoute</code></strong>:</p>
+<ul>
+<li>Ensures users are redirected to <code>/signin</code> if they are not authenticated.</li>
+</ul>
+</li>
+<li>
+<p><strong>Layouts</strong>:</p>
+<ul>
+<li><code>AuthLayout</code>: Minimal layout for authentication pages.</li>
+<li><code>AppLayout</code>: Main layout with header, footer, and protected content.</li>
+</ul>
+</li>
+<li>
+<p><strong>Reusability</strong>:</p>
+<ul>
+<li>You can extend the logic for roles or permissions in the <code>ProtectedRoute</code> component.</li>
+</ul>
+</li>
+</ol>
+<p>This approach provides flexibility similar to Next.js middleware by controlling access to pages based on authentication.</p>
+<p>The flickering during page navigation often occurs when the application is checking the user&rsquo;s authentication status asynchronously. This can be resolved by ensuring the authentication state is determined before rendering the routes. Here are some suggestions to fix the issue:</p>
+<hr>
+<h3 id="1-introduce-a-loading-state-for-auth-status">1. <strong>Introduce a Loading State for Auth Status</strong></h3>
+<p>Use a global state or context to manage the authentication status and a loading state while the app verifies it.</p>
+<h4 id="example-with-context-api">Example with Context API</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">createContext</span>, <span style="color:#a6e22e">useContext</span>, <span style="color:#a6e22e">useEffect</span>, <span style="color:#a6e22e">useState</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Auth Context
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">AuthContext</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createContext</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">isAuthenticated</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">loading</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">setAuthStatus</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">status</span>: <span style="color:#66d9ef">boolean</span>) <span style="color:#f92672">=&gt;</span> {},
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Auth Provider
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">AuthProvider</span>: <span style="color:#66d9ef">React.FC</span><span style="color:#f92672">&lt;</span>{ <span style="color:#a6e22e">children</span>: <span style="color:#66d9ef">React.ReactNode</span> }<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">children</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">isAuthenticated</span>, <span style="color:#a6e22e">setIsAuthenticated</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">loading</span>, <span style="color:#a6e22e">setLoading</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Simulate async auth status check
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">checkAuthStatus</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setLoading</span>(<span style="color:#66d9ef">true</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#34;authToken&#34;</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setIsAuthenticated</span>(<span style="color:#f92672">!!</span><span style="color:#a6e22e">authToken</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setLoading</span>(<span style="color:#66d9ef">false</span>);
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">checkAuthStatus</span>();
+</span></span><span style="display:flex;"><span>  }, []);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">AuthContext.Provider</span> <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{{ <span style="color:#a6e22e">isAuthenticated</span>, <span style="color:#a6e22e">loading</span>, <span style="color:#a6e22e">setAuthStatus</span>: <span style="color:#66d9ef">setIsAuthenticated</span> }}&gt;
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">children</span>}
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">AuthContext.Provider</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Hook to use auth context
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">useAuth</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> <span style="color:#a6e22e">useContext</span>(<span style="color:#a6e22e">AuthContext</span>);
+</span></span></code></pre></div><hr>
+<h3 id="2-modify">2. <strong>Modify <code>ProtectedLayout</code> to Handle Loading</strong></h3>
+<p>Show a loading spinner or fallback UI while the authentication status is being verified.</p>
+<h4 id="protectedlayouttsx"><code>ProtectedLayout.tsx</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">Navigate</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react-router-dom&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useAuth</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;./AuthProvider&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ProtectedLayout</span>: <span style="color:#66d9ef">React.FC</span><span style="color:#f92672">&lt;</span>{ <span style="color:#a6e22e">children</span>: <span style="color:#66d9ef">React.ReactNode</span> }<span style="color:#f92672">&gt;</span> <span style="color:#f92672">=</span> ({ <span style="color:#a6e22e">children</span> }) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">isAuthenticated</span>, <span style="color:#a6e22e">loading</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">useAuth</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">loading</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">Loading</span>...&lt;/<span style="color:#f92672">div</span>&gt;; <span style="color:#75715e">// Replace with a spinner or skeleton
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">isAuthenticated</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> &lt;<span style="color:#f92672">Navigate</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/auth/signin&#34;</span> /&gt;;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> &lt;&gt;{<span style="color:#a6e22e">children</span>}&lt;/&gt;;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">ProtectedLayout</span>;
+</span></span></code></pre></div><hr>
+<h3 id="3-wrap-the-app-with">3. <strong>Wrap the App with <code>AuthProvider</code></strong></h3>
+<p>Ensure the <code>AuthProvider</code> is wrapped around the entire application.</p>
+<h4 id="apptsx-1"><code>App.tsx</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">RouterProvider</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react-router-dom&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">AuthProvider</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;./AuthProvider&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">router</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;./routes&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span>: <span style="color:#66d9ef">React.FC</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">AuthProvider</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">RouterProvider</span> <span style="color:#a6e22e">router</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">router</span>} /&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">AuthProvider</span>&gt;
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
+</span></span></code></pre></div><hr>
+<h3 id="4-optimize-lazy-loading-with-suspense">4. <strong>Optimize Lazy Loading with Suspense</strong></h3>
+<p>Use <code>Suspense</code> to handle component-level loading, reducing the perception of flickering.</p>
+<h4 id="example">Example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Suspense</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;react&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">LazyLoadedComponent</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">React</span>.<span style="color:#a6e22e">lazy</span>(() <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">import</span>(<span style="color:#e6db74">&#34;./SomeComponent&#34;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> () <span style="color:#f92672">=&gt;</span> (
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">Suspense</span> <span style="color:#a6e22e">fallback</span><span style="color:#f92672">=</span>{&lt;<span style="color:#f92672">div</span>&gt;<span style="color:#a6e22e">Loading</span> <span style="color:#a6e22e">Component</span>...&lt;/<span style="color:#f92672">div</span>&gt;}&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">LazyLoadedComponent</span> /&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">Suspense</span>&gt;
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><hr>
+<h3 id="5-prefetch-user-auth-data">5. <strong>Prefetch User Auth Data</strong></h3>
+<p>If possible, prefetch the authentication data (e.g., using cookies or server-side rendering) to avoid async checks on the client.</p>
+<h4 id="example-1">Example</h4>
+<p>If you&rsquo;re using server-side rendering (e.g., with Next.js), prefetch the auth status and pass it to the client.</p>
+<hr>
+<h3 id="6-cache-auth-status">6. <strong>Cache Auth Status</strong></h3>
+<p>Store the auth status in a persistent store (e.g., <code>localStorage</code>, <code>sessionStorage</code>, or a global state manager like Redux) to avoid redundant checks.</p>
+<h4 id="example-2">Example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-tsx" data-lang="tsx"><span style="display:flex;"><span><span style="color:#a6e22e">useEffect</span>(() <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">cachedAuthStatus</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#e6db74">&#34;authStatus&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">cachedAuthStatus</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setIsAuthenticated</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">cachedAuthStatus</span>));
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Perform async auth check
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>}, []);
+</span></span></code></pre></div><hr>
+<h3 id="7-debounce-or-throttle-navigation-events">7. <strong>Debounce or Throttle Navigation Events</strong></h3>
+<p>If flickering occurs due to frequent state updates, you can debounce or throttle navigation logic.</p>
+<hr>
+<p>By combining these approaches, you can eliminate flickering and ensure a smoother user experience during authentication status checks.</p>
+
+    <header class="blog-header">
+      <div class="">
+        wriiten by <span class="">  </span>
+      </div>
+      <div class="">
+        published on Jan 20, 2025
+      </div>
+      
+      <a href="/categories/web-development">
+        <p class="post-category">Web Development</p>
+      </a>
+      
+    </header>
+  </article>
+
+  <aside class="blog-toc-mobile">
+    <details>
+      <summary>table of content</summary>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#react-middleware-authentication">React middleware authentication</a></li>
+    <li><a href="#steps-to-implement">Steps to Implement</a>
+      <ul>
+        <li><a href="#code-example">Code Example</a></li>
+        <li><a href="#key-features">Key Features</a></li>
+        <li><a href="#1-introduce-a-loading-state-for-auth-status">1. <strong>Introduce a Loading State for Auth Status</strong></a></li>
+        <li><a href="#2-modify">2. <strong>Modify <code>ProtectedLayout</code> to Handle Loading</strong></a></li>
+        <li><a href="#3-wrap-the-app-with">3. <strong>Wrap the App with <code>AuthProvider</code></strong></a></li>
+        <li><a href="#4-optimize-lazy-loading-with-suspense">4. <strong>Optimize Lazy Loading with Suspense</strong></a></li>
+        <li><a href="#5-prefetch-user-auth-data">5. <strong>Prefetch User Auth Data</strong></a></li>
+        <li><a href="#6-cache-auth-status">6. <strong>Cache Auth Status</strong></a></li>
+        <li><a href="#7-debounce-or-throttle-navigation-events">7. <strong>Debounce or Throttle Navigation Events</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
+  </aside>
+</section>
+
+<section class="related-posts">
+  <h4>related posts</h4>
+   
+  <a href="/webdev/integrate-gemini-to-website/">
+    <p class="related-post-title">Incorporating Gemini AI into your manga reading website</p>
+  </a>
+  
+  <a href="/webdev/react-router-search-form/">
+    <p class="related-post-title">Search form with React router</p>
+  </a>
+  
+  <a href="/webdev/retrieve-array-from-firebase/">
+    <p class="related-post-title">Retrieve array from firebase</p>
+  </a>
+  
+  <a href="/webdev/data/">
+    <p class="related-post-title">current page link styling in react js with tailwind css</p>
+  </a>
+   
+</section>
+</main>
+    <footer class="">
+  <p class="">
+    developed by <strong class="">shuvam khamrui</strong>
+  </p>
+</footer>
+
+  </body>
+</html>
