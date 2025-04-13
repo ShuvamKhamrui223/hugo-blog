@@ -3,16 +3,27 @@
   <head>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>
+  
+  current page link styling in react js with tailwind css | My New Hugo Site 
+</title>
+
+
+    <meta name="description" content="Steps to Style Current Page NavLink in react js with tailwind css">
+
 
 
     
-     <link rel="stylesheet" href="/css/style.css" />
+     
+<link rel="stylesheet" href="https://example.org/css/style.min.css" />
 <link
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
   rel="stylesheet"
 />
 
+
+     
+      
 </head>
   <body>
     <nav class="navbar">
@@ -45,10 +56,36 @@
     </ul>
     
   </nav>
-  
+   <div id="search" class="search-bar-container"></div>
+<script src="/pagefind/pagefind-ui.js"></script>
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+    });
+  });
+</script>
+
     <main>
 <section class="blog-layout">
   <article class="blog-content">
+    <header class="blog-header">
+      <div class="">
+        Wriiten by 
+        <a href="/authors/john-doe"><span class=""> John Doe </span></a>
+        
+      </div>
+      <div class="">
+        published on Jan 20, 2025
+      </div>
+      
+      <a href="/categories/web-development">
+        <p class="post-category">Web Development</p>
+      </a>
+      
+    </header>
     <h2 id="current-page-link-styling">current page link styling</h2>
 <p>You can style the current page NavLink differently in a React application using React Router and Tailwind CSS by utilizing the isActive property provided by the NavLink component. Here&rsquo;s how to do it:</p>
 <p>Steps to Style Current Page NavLink</p>
@@ -219,19 +256,6 @@
 <p>&lt;NavLink to=&quot;/&quot; className={({ isActive }) =&gt; getNavLinkClass(isActive)}&gt; Home </NavLink></p>
 <p>This approach keeps your code clean and DRY (Don&rsquo;t Repeat Yourself). Let me know if you need more enhancements!</p>
 
-    <header class="blog-header">
-      <div class="">
-        wriiten by <span class="">  </span>
-      </div>
-      <div class="">
-        published on Jan 20, 2025
-      </div>
-      
-      <a href="/categories/web-development">
-        <p class="post-category">Web Development</p>
-      </a>
-      
-    </header>
   </article>
 
   <aside class="blog-toc-mobile">
@@ -273,5 +297,8 @@
   </p>
 </footer>
 
+
+    
+    
   </body>
 </html>

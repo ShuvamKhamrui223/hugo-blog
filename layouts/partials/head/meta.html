@@ -1,3 +1,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>
+  {{ if .IsHome }} Home | {{.Site.Title}} {{ else if .Page.Title }}
+  {{.Page.Title}} | {{.Site.Title}} {{else}} {{.Site.Title}} {{ end }}
+</title>
+
+{{ if .IsHome }}
+<meta name="description" content="{{.Site.Params.description}}">
+{{ else }}
+    <meta name="description" content="{{ .Params.description }}">
+{{ end }}

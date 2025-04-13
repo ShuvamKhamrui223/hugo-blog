@@ -1,6 +1,9 @@
-baseURL: "https://shuvamkhamrui223.github.io/hugo-blog/"
+baseURL: "https://example.org/"
 languageCode: "en-us"
 title: "My New Hugo Site"
+
+params:
+  description: "This is a personal blog website developed and maintained by Shuvam Khamrui"
 
 caches:
   images:

@@ -2,8 +2,11 @@
 <html lang="en">
   {{ partial "head/head.html" . }}
   <body>
-    {{ partial "common/navbar.html" . }}
+    {{ partial "common/navbar.html" . }} {{ partial "pagefind.html" . }}
     <main>{{ block "main" . }} {{ end }}</main>
     {{ partial "common/footer.html" . }}
+
+    <!-- external scripts -->
+    {{ partial "global-scripts.html" . }}
   </body>
 </html>

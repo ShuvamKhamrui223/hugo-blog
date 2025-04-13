@@ -3,16 +3,27 @@
   <head>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>
+  
+  Vegan Cooking | My New Hugo Site 
+</title>
+
+
+    <meta name="description" content="">
+
 
 
     
-     <link rel="stylesheet" href="/css/style.css" />
+     
+<link rel="stylesheet" href="https://example.org/css/style.min.css" />
 <link
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
   rel="stylesheet"
 />
 
+
+     
+      
 </head>
   <body>
     <nav class="navbar">
@@ -45,7 +56,18 @@
     </ul>
     
   </nav>
-  
+   <div id="search" class="search-bar-container"></div>
+<script src="/pagefind/pagefind-ui.js"></script>
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+    });
+  });
+</script>
+
     <main>
 <section class="post-grid">
   
@@ -57,19 +79,25 @@
     
 
     <div class="post-header">
+      
       <span class="time-to-read">
         <span class="material-symbols-outlined"> timer </span> 3 min to read</span
       >
+
       <span class="publish-date">
         <span class="material-symbols-outlined"> calendar_month </span>
         Oct 10, 2023</span
       >
+      
+
+      
     </div>
 
     <a href="/cooking/post5/">
       <h2 class="post-title">Plant-Powered Perfection: Delicious and Easy Vegan Meals for Busy …</h2>
     </a>
     <p class="post-description">Explore the vibrant cultures and stunning landscapes of Southeast Asia without breaking …</p>
+
     <div class="post-tag-list">
       
       <a href="/tags/vegan-meals/">
@@ -84,32 +112,34 @@
         <p class="post-tag">plant-based</p>
       </a>
       
+    </div>
+    <div class="post-card-footer">
+      <a href="/cooking/post5/" class="post-link"
+        >Learn More
+        <svg
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width=".5"
+          height="30"
+          width="30"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M5 12h14"></path>
+          <path d="M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
 
-      <p class="">
-        written by 
-
-        <a href="/authors/emma-green/">
+      
+      <p class="post-category">
+        Written by
+        <a href="/authors/emma-green">
           <span class="author-name">Emma Green</span>
         </a>
-        
       </p>
+      
     </div>
-    <a href="/cooking/post5/" class="post-link"
-      >Learn More
-      <svg
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        stroke-width=".5"
-        height="30"
-        width="30"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M5 12h14"></path>
-        <path d="M12 5l7 7-7 7"></path>
-      </svg>
-    </a>
   </div>
   
 </section>
@@ -121,5 +151,8 @@
   </p>
 </footer>
 
+
+    
+    
   </body>
 </html>

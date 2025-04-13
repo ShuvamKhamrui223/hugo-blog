@@ -1,0 +1,11 @@
+<div id="search" class="search-bar-container"></div>
+<script src="/pagefind/pagefind-ui.js"></script>
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+    });
+  });
+</script>

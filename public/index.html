@@ -4,16 +4,26 @@
 	<meta name="generator" content="Hugo 0.145.0">
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>
+   Home | My New Hugo Site 
+</title>
+
+
+<meta name="description" content="This is a personal blog website developed and maintained by Shuvam Khamrui">
+
 
 
     
-     <link rel="stylesheet" href="/css/style.css" />
+     
+<link rel="stylesheet" href="https://example.org/css/style.min.css" />
 <link
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
   rel="stylesheet"
 />
 
+
+     
+      
 </head>
   <body>
     <nav class="navbar">
@@ -46,7 +56,18 @@
     </ul>
     
   </nav>
-  
+   <div id="search" class="search-bar-container"></div>
+<script src="/pagefind/pagefind-ui.js"></script>
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+    });
+  });
+</script>
+
     <main>
 <section class="post-grid">
   
@@ -446,5 +467,8 @@
   </p>
 </footer>
 
+
+    
+    
   </body>
 </html>

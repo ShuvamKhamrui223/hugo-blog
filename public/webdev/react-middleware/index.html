@@ -3,16 +3,27 @@
   <head>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>
+  
+  React middleware authentication | My New Hugo Site 
+</title>
+
+
+    <meta name="description" content="Exploring emerging trends and technologies shaping the web development landscape in 2025.">
+
 
 
     
-     <link rel="stylesheet" href="/css/style.css" />
+     
+<link rel="stylesheet" href="https://example.org/css/style.min.css" />
 <link
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
   rel="stylesheet"
 />
 
+
+     
+      
 </head>
   <body>
     <nav class="navbar">
@@ -45,10 +56,36 @@
     </ul>
     
   </nav>
-  
+   <div id="search" class="search-bar-container"></div>
+<script src="/pagefind/pagefind-ui.js"></script>
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+    });
+  });
+</script>
+
     <main>
 <section class="blog-layout">
   <article class="blog-content">
+    <header class="blog-header">
+      <div class="">
+        Wriiten by 
+        <a href="/authors/john-doe"><span class=""> John Doe </span></a>
+        
+      </div>
+      <div class="">
+        published on Jan 20, 2025
+      </div>
+      
+      <a href="/categories/web-development">
+        <p class="post-category">Web Development</p>
+      </a>
+      
+    </header>
     <h2 id="react-middleware-authentication">React middleware authentication</h2>
 <p>To implement a middleware-like system in React.js, you can achieve this by using React Router and a combination of higher-order components (HOCs) or wrapper components for layouts. Here’s how you can structure it:</p>
 <h2 id="steps-to-implement">Steps to Implement</h2>
@@ -310,19 +347,6 @@ Use a custom function or HOC to determine whether the user is authenticated and 
 <hr>
 <p>By combining these approaches, you can eliminate flickering and ensure a smoother user experience during authentication status checks.</p>
 
-    <header class="blog-header">
-      <div class="">
-        wriiten by <span class="">  </span>
-      </div>
-      <div class="">
-        published on Jan 20, 2025
-      </div>
-      
-      <a href="/categories/web-development">
-        <p class="post-category">Web Development</p>
-      </a>
-      
-    </header>
   </article>
 
   <aside class="blog-toc-mobile">
@@ -377,5 +401,8 @@ Use a custom function or HOC to determine whether the user is authenticated and 
   </p>
 </footer>
 
+
+    
+    
   </body>
 </html>

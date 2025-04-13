@@ -3,6 +3,7 @@
 * {
   margin: 0;
   padding: 0;
+  /* outline: 0.2rem solid red; */
 }
 
 :root {
@@ -42,14 +43,14 @@ a {
   font-family: var(--font-family-1);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong {
-  font-family: var(--font-family-2);
+.blog-content h1,
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6,
+.blog-content strong {
+  line-height: 5rem;
 }
 
 html {
@@ -67,8 +68,9 @@ body {
 main {
   padding: 5% 4%;
   min-height: 90vh;
-
-  @media (width<=640px) {
+}
+@media (width <= 640px) {
+  main {
     padding-inline: 2rem;
   }
 }
@@ -87,7 +89,7 @@ main {
     gap: 1rem;
     justify-content: flex-end;
 
-    li>a {
+    li > a {
       font-size: 1.4rem;
       color: var(--text-color);
     }
@@ -204,8 +206,10 @@ main {
     color: hsl(300, 47%, 25%);
   }
 }
-.post-card-footer{
-  display: flex;align-items: center;justify-content: space-between;
+.post-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .post-category {
   letter-spacing: 0.1rem;
@@ -240,25 +244,23 @@ main {
 }
 
 .search-bar-container {
-  width: 100%;
   padding: 0.8rem 1rem;
 }
 
-.pagefind-ui form {
+.pagefind-ui__form {
   width: 60%;
   margin-inline: auto;
-  border-radius: 0px;
 }
 
 @media (width<=540px) {
-  .pagefind-ui form {
+  .pagefind-ui__form {
     width: 80%;
   }
 }
 
-.pagefind-ui form input[type="text"] {
+.pagefind-ui__search-input {
   padding: 0.5rem 0.8rem;
-  background-color: transparent;
+  background-color: red;
   flex: 1;
   border: none;
   outline: none;
@@ -413,7 +415,7 @@ details {
   width: 25%;
 }
 
-@media (width<=768px) {
+@media (width <= 768px) {
   .blog-toc-mobile {
     width: 100%;
     background-color: hsla(from var(--navbar-bg-color) h s 98%);
@@ -421,6 +423,7 @@ details {
 
   .blog-toc-mobile {
     display: block;
+    position: static;
   }
 }
 

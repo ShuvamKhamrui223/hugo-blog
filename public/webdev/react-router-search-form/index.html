@@ -3,16 +3,27 @@
   <head>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<title>
+  
+  Search form with React router | My New Hugo Site 
+</title>
+
+
+    <meta name="description" content="Exploring emerging trends and technologies shaping the web development landscape in 2025.">
+
 
 
     
-     <link rel="stylesheet" href="/css/style.css" />
+     
+<link rel="stylesheet" href="https://example.org/css/style.min.css" />
 <link
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
   rel="stylesheet"
 />
 
+
+     
+      
 </head>
   <body>
     <nav class="navbar">
@@ -45,10 +56,36 @@
     </ul>
     
   </nav>
-  
+   <div id="search" class="search-bar-container"></div>
+<script src="/pagefind/pagefind-ui.js"></script>
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+    });
+  });
+</script>
+
     <main>
 <section class="blog-layout">
   <article class="blog-content">
+    <header class="blog-header">
+      <div class="">
+        Wriiten by 
+        <a href="/authors/john-doe"><span class=""> John Doe </span></a>
+        
+      </div>
+      <div class="">
+        published on Jan 20, 2025
+      </div>
+      
+      <a href="/categories/web-development">
+        <p class="post-category">Web Development</p>
+      </a>
+      
+    </header>
     <h2 id="search-form-with-react-router">Search form with React router</h2>
 <p>Here&rsquo;s an example of a search form using React Router v6&rsquo;s <code>useNavigate</code> hook for redirection upon form submission:</p>
 <h3 id="steps">Steps</h3>
@@ -138,19 +175,6 @@
 </ul>
 <p>This setup should handle the search and redirection flow in your React app using React Router v6.</p>
 
-    <header class="blog-header">
-      <div class="">
-        wriiten by <span class="">  </span>
-      </div>
-      <div class="">
-        published on Jan 20, 2025
-      </div>
-      
-      <a href="/categories/web-development">
-        <p class="post-category">Web Development</p>
-      </a>
-      
-    </header>
   </article>
 
   <aside class="blog-toc-mobile">
@@ -200,5 +224,8 @@
   </p>
 </footer>
 
+
+    
+    
   </body>
 </html>
