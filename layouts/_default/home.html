@@ -3,22 +3,22 @@
   {{ range .Paginator.Pages }}
   <div class="post-card">
     {{ range .Params.categories }}
-    <a href="/categories/{{ . | urlize }}">
+    <a href="{{ . | urlize }}">
       <p class="post-category">{{.}}</p>
     </a>
     {{end}}
 
     <div class="post-header">
       <!-- <div class=""> -->
-        <span class="time-to-read">
-          <span class="material-symbols-outlined"> timer </span> {{ .ReadingTime
-          }} min to read</span
-        >
+      <span class="time-to-read">
+        <span class="material-symbols-outlined"> timer </span> {{ .ReadingTime
+        }} min to read</span
+      >
 
-        <span class="publish-date">
-          <span class="material-symbols-outlined"> calendar_month </span>
-          {{ .PublishDate | time.Format ":date_medium" }}</span
-        >
+      <span class="publish-date">
+        <span class="material-symbols-outlined"> calendar_month </span>
+        {{ .PublishDate | time.Format ":date_medium" }}</span
+      >
       <!-- </div> -->
 
       <!-- <div class="" style="display: block">
