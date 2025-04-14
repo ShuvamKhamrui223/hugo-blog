@@ -1,82 +1,139 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>My New Hugo Site</title>
-    <link>https://shuvamkhamrui223.github.io/hugo-blog/</link>
-    <description>Recent content on My New Hugo Site</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jan 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://shuvamkhamrui223.github.io/hugo-blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>current page link styling in react js with tailwind css</title>
-      <link>https://shuvamkhamrui223.github.io/hugo-blog/webdev/data/</link>
-      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://shuvamkhamrui223.github.io/hugo-blog/webdev/data/</guid>
-      <description>&lt;h2 id=&#34;current-page-link-styling&#34;&gt;current page link styling&lt;/h2&gt;&#xA;&lt;p&gt;You can style the current page NavLink differently in a React application using React Router and Tailwind CSS by utilizing the isActive property provided by the NavLink component. Here&amp;rsquo;s how to do it:&lt;/p&gt;&#xA;&lt;p&gt;Steps to Style Current Page NavLink&lt;/p&gt;&#xA;&lt;p&gt;• Use NavLink Component: React Router&amp;rsquo;s NavLink provides an isActive boolean property that indicates whether the link corresponds to the current route.&lt;/p&gt;&#xA;&lt;p&gt;• Apply Tailwind Classes Dynamically: Use a function to apply conditional Tailwind classes based on the isActive property.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Incorporating Gemini AI into your manga reading website</title>
-      <link>https://shuvamkhamrui223.github.io/hugo-blog/webdev/integrate-gemini-to-website/</link>
-      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://shuvamkhamrui223.github.io/hugo-blog/webdev/integrate-gemini-to-website/</guid>
-      <description>&lt;h2 id=&#34;incorporating-gemini-ai-into-your-manga-reading-website&#34;&gt;Incorporating Gemini AI into your manga reading website&lt;/h2&gt;&#xA;&lt;p&gt;Incorporating Gemini AI into your manga reading website can significantly enhance user experience by providing personalized recommendations, advanced search features, and interactive elements. Here&amp;rsquo;s how you can integrate Gemini AI to make your site more engaging:&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;1-personalized-manga-recommendations&#34;&gt;&lt;strong&gt;1. Personalized Manga Recommendations&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Leverage Gemini AI to analyze user preferences, reading history, and ratings to recommend manga tailored to their interests.&lt;/p&gt;&#xA;&lt;h4 id=&#34;implementation&#34;&gt;Implementation&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Data Collection&lt;/strong&gt;: Track user reading habits (e.g., genres, authors, completed series).&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Recommendation Engine&lt;/strong&gt;: Use Gemini AI to process this data and generate personalized recommendations.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;UI Integration&lt;/strong&gt;: Add a &amp;ldquo;Recommended for You&amp;rdquo; section on the homepage or profile page.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;example&#34;&gt;Example&lt;/h4&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;&amp;ldquo;Because you liked [Naruto], you might enjoy [Bleach].&amp;rdquo;&lt;/em&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;2-ai-powered-manga-search&#34;&gt;&lt;strong&gt;2. AI-Powered Manga Search&lt;/strong&gt;&lt;/h3&gt;&#xA;&lt;p&gt;Use Gemini AI for natural language processing (NLP) to enable users to search for manga intuitively.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>React middleware authentication</title>
-      <link>https://shuvamkhamrui223.github.io/hugo-blog/webdev/react-middleware/</link>
-      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://shuvamkhamrui223.github.io/hugo-blog/webdev/react-middleware/</guid>
-      <description>&lt;h2 id=&#34;react-middleware-authentication&#34;&gt;React middleware authentication&lt;/h2&gt;&#xA;&lt;p&gt;To implement a middleware-like system in React.js, you can achieve this by using React Router and a combination of higher-order components (HOCs) or wrapper components for layouts. Here’s how you can structure it:&lt;/p&gt;&#xA;&lt;h2 id=&#34;steps-to-implement&#34;&gt;Steps to Implement&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Install Dependencies&lt;/strong&gt;: Ensure you have &lt;code&gt;react-router-dom&lt;/code&gt; installed.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install react-router-dom&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Create Two Layout Components&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;AuthLayout&lt;/strong&gt;: For authentication pages like Sign In and Register.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;AppLayout&lt;/strong&gt;: For the main application with a header, footer, and other components.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Set Up Routes&lt;/strong&gt;:&#xA;Use &lt;code&gt;react-router-dom&lt;/code&gt; to define routes and implement a custom &lt;code&gt;ProtectedRoute&lt;/code&gt; component to handle authentication checks.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Search form with React router</title>
-      <link>https://shuvamkhamrui223.github.io/hugo-blog/webdev/react-router-search-form/</link>
-      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://shuvamkhamrui223.github.io/hugo-blog/webdev/react-router-search-form/</guid>
-      <description>&lt;h2 id=&#34;search-form-with-react-router&#34;&gt;Search form with React router&lt;/h2&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s an example of a search form using React Router v6&amp;rsquo;s &lt;code&gt;useNavigate&lt;/code&gt; hook for redirection upon form submission:&lt;/p&gt;&#xA;&lt;h3 id=&#34;steps&#34;&gt;Steps&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Install React Router&lt;/strong&gt;: If you haven&amp;rsquo;t already installed React Router, use the following command to add it to your project:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install react-router-dom&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Create a Search Form Component&lt;/strong&gt;: This component uses the &lt;code&gt;useNavigate&lt;/code&gt; hook to programmatically navigate to the &lt;code&gt;/search?q=searchterm&lt;/code&gt; route when the form is submitted.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Plant-Powered Perfection: Delicious and Easy Vegan Meals for Busy Weeknights</title>
-      <link>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post5/</link>
-      <pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post5/</guid>
-      <description>&lt;h2 id=&#34;plant-powered-perfection-delicious-and-easy-vegan-meals-for-busy-weeknights&#34;&gt;Plant-Powered Perfection: Delicious and Easy Vegan Meals for Busy Weeknights&lt;/h2&gt;&#xA;&lt;p&gt;In today’s fast-paced world, finding time to prepare healthy meals can be a challenge, especially for those following a vegan lifestyle. But fear not! We’ve compiled a list of delicious and easy vegan meals that are perfect for busy weeknights. These recipes are not only quick to prepare but also packed with flavor and nutrients. Let’s dive into the world of plant-powered perfection!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Retrieve array from firebase</title>
-      <link>https://shuvamkhamrui223.github.io/hugo-blog/webdev/retrieve-array-from-firebase/</link>
-      <pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://shuvamkhamrui223.github.io/hugo-blog/webdev/retrieve-array-from-firebase/</guid>
-      <description>&lt;h2 id=&#34;retrieve-array-from-firebase&#34;&gt;Retrieve array from firebase&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. Project Setup&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Ensure Firestore is Set Up:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create a Firebase project in the Firebase console.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Enable Firestore in your project.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Install the necessary Firebase packages:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install firebase &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Create a Firebase Configuration File:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Create a file named &lt;code&gt;firebase.js&lt;/code&gt; (or similar) in your React project.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Import the &lt;code&gt;initializeApp&lt;/code&gt; function from &lt;code&gt;firebase&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Add your Firebase project&amp;rsquo;s configuration details:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-javascript&#34; data-lang=&#34;javascript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; { &lt;span style=&#34;color:#a6e22e&#34;&gt;initializeApp&lt;/span&gt; } &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;firebase/app&amp;#39;&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;firebaseConfig&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;apiKey&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;YOUR_API_KEY&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;authDomain&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;YOUR_PROJECT_ID.firebaseapp.com&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;projectId&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;YOUR_PROJECT_ID&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;storageBucket&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;YOUR_PROJECT_ID.appspot.com&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;messagingSenderId&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;YOUR_MESSAGING_SENDER_ID&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;appId&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;YOUR_APP_ID&amp;#34;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;measurementId&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;YOUR_MEASUREMENT_ID&amp;#34;&lt;/span&gt; &#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;app&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;initializeApp&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;firebaseConfig&lt;/span&gt;); &#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;2. Retrieve Data from Firestore&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>The Cultural Significance of Comfort Foods</title>
-      <link>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post4/</link>
-      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post4/</guid>
-      <description>&lt;h3 id=&#34;post-1-the-cultural-significance-of-comfort-foods&#34;&gt;Post 1: The Cultural Significance of Comfort Foods&lt;/h3&gt;&#xA;&lt;p&gt;Comfort foods are often tied to our memories and cultural backgrounds. Let’s explore the stories behind some beloved comfort foods.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Mac and Cheese&lt;/strong&gt;: A staple in American households, this dish has roots in Italy and has evolved into various regional variations.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Ramen&lt;/strong&gt;: Originating from China, ramen has become a symbol of Japanese cuisine, with each region offering its unique twist.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Tacos&lt;/strong&gt;: A traditional Mexican dish, tacos reflect the country’s diverse culinary heritage and regional ingredients.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Curry&lt;/strong&gt;: With origins in South Asia, curry has traveled the world, adapting to local tastes and ingredients.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Biryani&lt;/strong&gt;: This fragrant rice dish has a rich history, blending Persian and Indian culinary traditions.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-    <item>
-      <title>Sanity-Saving Kitchen Hacks for Busy Families</title>
-      <link>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post3/</link>
-      <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post3/</guid>
-      <description>&lt;h3 id=&#34;post-3-sanity-saving-kitchen-hacks-for-busy-families&#34;&gt;Post 3: Sanity-Saving Kitchen Hacks for Busy Families&lt;/h3&gt;&#xA;&lt;p&gt;When life gets hectic, these kitchen hacks can help keep your sanity intact while cooking for your family.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Meal Prep Sundays&lt;/strong&gt;: Dedicate Sundays to meal prep to make weeknight cooking easier.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Involve the Kids&lt;/strong&gt;: Get your children involved in cooking to make it a fun family activity.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Use a Slow Cooker or Instant Pot&lt;/strong&gt;: These appliances can save you time and effort on busy nights.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Create a Family Recipe Book&lt;/strong&gt;: Compile favorite family recipes to make meal planning easier.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Set Up a Snack Station&lt;/strong&gt;: Prepare healthy snacks in advance to keep everyone satisfied.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Use a Whiteboard for Meal Planning&lt;/strong&gt;: Write down meals for the week on a whiteboard for easy reference.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Keep a Well-Stocked Pantry&lt;/strong&gt;: Stock up on essentials to make quick meals without a trip to the store.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Make Breakfast Ahead&lt;/strong&gt;: Prepare breakfast items like overnight oats or muffins in advance.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Embrace Leftover Nights&lt;/strong&gt;: Designate one night a week for using up leftovers to reduce waste.&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
-    </item>
-    <item>
-      <title>Budget-Friendly Kitchen Hacks to Save You Money</title>
-      <link>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post2/</link>
-      <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post2/</guid>
-      <description>&lt;h3 id=&#34;post-2-budget-friendly-kitchen-hacks-to-save-you-money&#34;&gt;Post 2: Budget-Friendly Kitchen Hacks to Save You Money&lt;/h3&gt;&#xA;&lt;p&gt;Eating well doesn’t have to break the bank. Here are some budget-friendly kitchen hacks to help you save money while cooking.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Buy in Bulk&lt;/strong&gt;: Purchase staples like rice, beans, and pasta in bulk to save money.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Use Leftovers Creatively&lt;/strong&gt;: Transform leftovers into new meals to reduce waste.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Grow Your Own Herbs&lt;/strong&gt;: Start a small herb garden to save on fresh herbs.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Make Your Own Sauces&lt;/strong&gt;: Homemade sauces can be cheaper and healthier than store-bought options.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Plan Your Grocery List&lt;/strong&gt;: Stick to a list to avoid impulse buys at the grocery store.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Use Seasonal Produce&lt;/strong&gt;: Buy fruits and vegetables that are in season for better prices and flavor.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Freeze Extra Portions&lt;/strong&gt;: Save money by freezing extra portions of meals for future use.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;DIY Cleaning Supplies&lt;/strong&gt;: Make your own cleaning supplies to save on costs.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Shop Sales and Coupons&lt;/strong&gt;: Keep an eye out for sales and use coupons to save on groceries.&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
-    </item>
-    <item>
-      <title>10 Time-Saving Kitchen Hacks You Need to Try</title>
-      <link>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post1/</link>
-      <pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate>
-      <guid>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post1/</guid>
-      <description>&lt;h3 id=&#34;post-1-10-time-saving-kitchen-hacks-you-need-to-try&#34;&gt;Post 1: 10 Time-Saving Kitchen Hacks You Need to Try&lt;/h3&gt;&#xA;&lt;p&gt;Cooking can be a time-consuming task, but with these kitchen hacks, you can streamline your process and get meals on the table faster.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;Pre-chop Vegetables&lt;/strong&gt;: Spend a few minutes chopping vegetables at the beginning of the week and store them in airtight containers.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Use a Slow Cooker&lt;/strong&gt;: Prepare meals in the morning and let your slow cooker do the work while you go about your day.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Batch Cooking&lt;/strong&gt;: Cook large portions of meals and freeze them for later use.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;One-Pan Meals&lt;/strong&gt;: Reduce cleanup time by making meals that can be cooked in a single pan.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Microwave Hacks&lt;/strong&gt;: Use your microwave to quickly steam vegetables or reheat leftovers.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Invest in Quality Tools&lt;/strong&gt;: A good knife and cutting board can save you time and effort.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Organize Your Pantry&lt;/strong&gt;: Keep your pantry organized to easily find ingredients and avoid duplicate purchases.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Use a Food Processor&lt;/strong&gt;: Speed up chopping, slicing, and grating tasks with a food processor.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Plan Your Meals&lt;/strong&gt;: Create a weekly meal plan to save time on grocery shopping and cooking.&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My New Hugo Site</title><link>https://shuvamkhamrui223.github.io/hugo-blog/</link><description>Recent content on My New Hugo Site</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://shuvamkhamrui223.github.io/hugo-blog/index.xml" rel="self" type="application/rss+xml"/><item><title>current page link styling in react js with tailwind css</title><link>https://shuvamkhamrui223.github.io/hugo-blog/webdev/data/</link><pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/webdev/data/</guid><description>&lt;h2 id="current-page-link-styling">current page link styling&lt;/h2>
+&lt;p>You can style the current page NavLink differently in a React application using React Router and Tailwind CSS by utilizing the isActive property provided by the NavLink component. Here&amp;rsquo;s how to do it:&lt;/p>
+&lt;p>Steps to Style Current Page NavLink&lt;/p>
+&lt;p>• Use NavLink Component: React Router&amp;rsquo;s NavLink provides an isActive boolean property that indicates whether the link corresponds to the current route.&lt;/p>
+&lt;p>• Apply Tailwind Classes Dynamically: Use a function to apply conditional Tailwind classes based on the isActive property.&lt;/p></description></item><item><title>Incorporating Gemini AI into your manga reading website</title><link>https://shuvamkhamrui223.github.io/hugo-blog/webdev/integrate-gemini-to-website/</link><pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/webdev/integrate-gemini-to-website/</guid><description>&lt;h2 id="incorporating-gemini-ai-into-your-manga-reading-website">Incorporating Gemini AI into your manga reading website&lt;/h2>
+&lt;p>Incorporating Gemini AI into your manga reading website can significantly enhance user experience by providing personalized recommendations, advanced search features, and interactive elements. Here&amp;rsquo;s how you can integrate Gemini AI to make your site more engaging:&lt;/p>
+&lt;hr>
+&lt;h3 id="1-personalized-manga-recommendations">&lt;strong>1. Personalized Manga Recommendations&lt;/strong>&lt;/h3>
+&lt;p>Leverage Gemini AI to analyze user preferences, reading history, and ratings to recommend manga tailored to their interests.&lt;/p>
+&lt;h4 id="implementation">Implementation&lt;/h4>
+&lt;ul>
+&lt;li>&lt;strong>Data Collection&lt;/strong>: Track user reading habits (e.g., genres, authors, completed series).&lt;/li>
+&lt;li>&lt;strong>Recommendation Engine&lt;/strong>: Use Gemini AI to process this data and generate personalized recommendations.&lt;/li>
+&lt;li>&lt;strong>UI Integration&lt;/strong>: Add a &amp;ldquo;Recommended for You&amp;rdquo; section on the homepage or profile page.&lt;/li>
+&lt;/ul>
+&lt;h4 id="example">Example&lt;/h4>
+&lt;ul>
+&lt;li>&lt;em>&amp;ldquo;Because you liked [Naruto], you might enjoy [Bleach].&amp;rdquo;&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-ai-powered-manga-search">&lt;strong>2. AI-Powered Manga Search&lt;/strong>&lt;/h3>
+&lt;p>Use Gemini AI for natural language processing (NLP) to enable users to search for manga intuitively.&lt;/p></description></item><item><title>React middleware authentication</title><link>https://shuvamkhamrui223.github.io/hugo-blog/webdev/react-middleware/</link><pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/webdev/react-middleware/</guid><description>&lt;h2 id="react-middleware-authentication">React middleware authentication&lt;/h2>
+&lt;p>To implement a middleware-like system in React.js, you can achieve this by using React Router and a combination of higher-order components (HOCs) or wrapper components for layouts. Here’s how you can structure it:&lt;/p>
+&lt;h2 id="steps-to-implement">Steps to Implement&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Install Dependencies&lt;/strong>: Ensure you have &lt;code>react-router-dom&lt;/code> installed.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npm install react-router-dom
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Create Two Layout Components&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>AuthLayout&lt;/strong>: For authentication pages like Sign In and Register.&lt;/li>
+&lt;li>&lt;strong>AppLayout&lt;/strong>: For the main application with a header, footer, and other components.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Set Up Routes&lt;/strong>:
+Use &lt;code>react-router-dom&lt;/code> to define routes and implement a custom &lt;code>ProtectedRoute&lt;/code> component to handle authentication checks.&lt;/p></description></item><item><title>Search form with React router</title><link>https://shuvamkhamrui223.github.io/hugo-blog/webdev/react-router-search-form/</link><pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/webdev/react-router-search-form/</guid><description>&lt;h2 id="search-form-with-react-router">Search form with React router&lt;/h2>
+&lt;p>Here&amp;rsquo;s an example of a search form using React Router v6&amp;rsquo;s &lt;code>useNavigate&lt;/code> hook for redirection upon form submission:&lt;/p>
+&lt;h3 id="steps">Steps&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>Install React Router&lt;/strong>: If you haven&amp;rsquo;t already installed React Router, use the following command to add it to your project:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npm install react-router-dom
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Create a Search Form Component&lt;/strong>: This component uses the &lt;code>useNavigate&lt;/code> hook to programmatically navigate to the &lt;code>/search?q=searchterm&lt;/code> route when the form is submitted.&lt;/p></description></item><item><title>Plant-Powered Perfection: Delicious and Easy Vegan Meals for Busy Weeknights</title><link>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post5/</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post5/</guid><description>&lt;h2 id="plant-powered-perfection-delicious-and-easy-vegan-meals-for-busy-weeknights">Plant-Powered Perfection: Delicious and Easy Vegan Meals for Busy Weeknights&lt;/h2>
+&lt;p>In today’s fast-paced world, finding time to prepare healthy meals can be a challenge, especially for those following a vegan lifestyle. But fear not! We’ve compiled a list of delicious and easy vegan meals that are perfect for busy weeknights. These recipes are not only quick to prepare but also packed with flavor and nutrients. Let’s dive into the world of plant-powered perfection!&lt;/p></description></item><item><title>Retrieve array from firebase</title><link>https://shuvamkhamrui223.github.io/hugo-blog/webdev/retrieve-array-from-firebase/</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/webdev/retrieve-array-from-firebase/</guid><description>&lt;h2 id="retrieve-array-from-firebase">Retrieve array from firebase&lt;/h2>
+&lt;p>&lt;strong>1. Project Setup&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Ensure Firestore is Set Up:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Create a Firebase project in the Firebase console.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Enable Firestore in your project.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Install the necessary Firebase packages:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>npm install firebase 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>Create a Firebase Configuration File:&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Create a file named &lt;code>firebase.js&lt;/code> (or similar) in your React project.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Import the &lt;code>initializeApp&lt;/code> function from &lt;code>firebase&lt;/code>.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Add your Firebase project&amp;rsquo;s configuration details:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">import&lt;/span> { &lt;span style="color:#a6e22e">initializeApp&lt;/span> } &lt;span style="color:#a6e22e">from&lt;/span> &lt;span style="color:#e6db74">&amp;#39;firebase/app&amp;#39;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">firebaseConfig&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">apiKey&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;YOUR_API_KEY&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">authDomain&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;YOUR_PROJECT_ID.firebaseapp.com&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">projectId&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;YOUR_PROJECT_ID&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">storageBucket&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;YOUR_PROJECT_ID.appspot.com&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">messagingSenderId&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;YOUR_MESSAGING_SENDER_ID&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">appId&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;YOUR_APP_ID&amp;#34;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">measurementId&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#34;YOUR_MEASUREMENT_ID&amp;#34;&lt;/span> 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>};
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">app&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">initializeApp&lt;/span>(&lt;span style="color:#a6e22e">firebaseConfig&lt;/span>); 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>2. Retrieve Data from Firestore&lt;/strong>&lt;/p></description></item><item><title>The Cultural Significance of Comfort Foods</title><link>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post4/</link><pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post4/</guid><description>&lt;h3 id="post-1-the-cultural-significance-of-comfort-foods">Post 1: The Cultural Significance of Comfort Foods&lt;/h3>
+&lt;p>Comfort foods are often tied to our memories and cultural backgrounds. Let’s explore the stories behind some beloved comfort foods.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Mac and Cheese&lt;/strong>: A staple in American households, this dish has roots in Italy and has evolved into various regional variations.&lt;/li>
+&lt;li>&lt;strong>Ramen&lt;/strong>: Originating from China, ramen has become a symbol of Japanese cuisine, with each region offering its unique twist.&lt;/li>
+&lt;li>&lt;strong>Tacos&lt;/strong>: A traditional Mexican dish, tacos reflect the country’s diverse culinary heritage and regional ingredients.&lt;/li>
+&lt;li>&lt;strong>Curry&lt;/strong>: With origins in South Asia, curry has traveled the world, adapting to local tastes and ingredients.&lt;/li>
+&lt;li>&lt;strong>Biryani&lt;/strong>: This fragrant rice dish has a rich history, blending Persian and Indian culinary traditions.&lt;/li>
+&lt;/ul></description></item><item><title>Sanity-Saving Kitchen Hacks for Busy Families</title><link>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post3/</link><pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post3/</guid><description>&lt;h3 id="post-3-sanity-saving-kitchen-hacks-for-busy-families">Post 3: Sanity-Saving Kitchen Hacks for Busy Families&lt;/h3>
+&lt;p>When life gets hectic, these kitchen hacks can help keep your sanity intact while cooking for your family.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Meal Prep Sundays&lt;/strong>: Dedicate Sundays to meal prep to make weeknight cooking easier.&lt;/li>
+&lt;li>&lt;strong>Involve the Kids&lt;/strong>: Get your children involved in cooking to make it a fun family activity.&lt;/li>
+&lt;li>&lt;strong>Use a Slow Cooker or Instant Pot&lt;/strong>: These appliances can save you time and effort on busy nights.&lt;/li>
+&lt;li>&lt;strong>Create a Family Recipe Book&lt;/strong>: Compile favorite family recipes to make meal planning easier.&lt;/li>
+&lt;li>&lt;strong>Set Up a Snack Station&lt;/strong>: Prepare healthy snacks in advance to keep everyone satisfied.&lt;/li>
+&lt;li>&lt;strong>Use a Whiteboard for Meal Planning&lt;/strong>: Write down meals for the week on a whiteboard for easy reference.&lt;/li>
+&lt;li>&lt;strong>Keep a Well-Stocked Pantry&lt;/strong>: Stock up on essentials to make quick meals without a trip to the store.&lt;/li>
+&lt;li>&lt;strong>Make Breakfast Ahead&lt;/strong>: Prepare breakfast items like overnight oats or muffins in advance.&lt;/li>
+&lt;li>&lt;strong>Embrace Leftover Nights&lt;/strong>: Designate one night a week for using up leftovers to reduce waste.&lt;/li>
+&lt;/ol></description></item><item><title>Budget-Friendly Kitchen Hacks to Save You Money</title><link>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post2/</link><pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post2/</guid><description>&lt;h3 id="post-2-budget-friendly-kitchen-hacks-to-save-you-money">Post 2: Budget-Friendly Kitchen Hacks to Save You Money&lt;/h3>
+&lt;p>Eating well doesn’t have to break the bank. Here are some budget-friendly kitchen hacks to help you save money while cooking.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Buy in Bulk&lt;/strong>: Purchase staples like rice, beans, and pasta in bulk to save money.&lt;/li>
+&lt;li>&lt;strong>Use Leftovers Creatively&lt;/strong>: Transform leftovers into new meals to reduce waste.&lt;/li>
+&lt;li>&lt;strong>Grow Your Own Herbs&lt;/strong>: Start a small herb garden to save on fresh herbs.&lt;/li>
+&lt;li>&lt;strong>Make Your Own Sauces&lt;/strong>: Homemade sauces can be cheaper and healthier than store-bought options.&lt;/li>
+&lt;li>&lt;strong>Plan Your Grocery List&lt;/strong>: Stick to a list to avoid impulse buys at the grocery store.&lt;/li>
+&lt;li>&lt;strong>Use Seasonal Produce&lt;/strong>: Buy fruits and vegetables that are in season for better prices and flavor.&lt;/li>
+&lt;li>&lt;strong>Freeze Extra Portions&lt;/strong>: Save money by freezing extra portions of meals for future use.&lt;/li>
+&lt;li>&lt;strong>DIY Cleaning Supplies&lt;/strong>: Make your own cleaning supplies to save on costs.&lt;/li>
+&lt;li>&lt;strong>Shop Sales and Coupons&lt;/strong>: Keep an eye out for sales and use coupons to save on groceries.&lt;/li>
+&lt;/ol></description></item><item><title>10 Time-Saving Kitchen Hacks You Need to Try</title><link>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post1/</link><pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/cooking/post1/</guid><description>&lt;h3 id="post-1-10-time-saving-kitchen-hacks-you-need-to-try">Post 1: 10 Time-Saving Kitchen Hacks You Need to Try&lt;/h3>
+&lt;p>Cooking can be a time-consuming task, but with these kitchen hacks, you can streamline your process and get meals on the table faster.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>Pre-chop Vegetables&lt;/strong>: Spend a few minutes chopping vegetables at the beginning of the week and store them in airtight containers.&lt;/li>
+&lt;li>&lt;strong>Use a Slow Cooker&lt;/strong>: Prepare meals in the morning and let your slow cooker do the work while you go about your day.&lt;/li>
+&lt;li>&lt;strong>Batch Cooking&lt;/strong>: Cook large portions of meals and freeze them for later use.&lt;/li>
+&lt;li>&lt;strong>One-Pan Meals&lt;/strong>: Reduce cleanup time by making meals that can be cooked in a single pan.&lt;/li>
+&lt;li>&lt;strong>Microwave Hacks&lt;/strong>: Use your microwave to quickly steam vegetables or reheat leftovers.&lt;/li>
+&lt;li>&lt;strong>Invest in Quality Tools&lt;/strong>: A good knife and cutting board can save you time and effort.&lt;/li>
+&lt;li>&lt;strong>Organize Your Pantry&lt;/strong>: Keep your pantry organized to easily find ingredients and avoid duplicate purchases.&lt;/li>
+&lt;li>&lt;strong>Use a Food Processor&lt;/strong>: Speed up chopping, slicing, and grating tasks with a food processor.&lt;/li>
+&lt;li>&lt;strong>Plan Your Meals&lt;/strong>: Create a weekly meal plan to save time on grocery shopping and cooking.&lt;/li>
+&lt;/ol></description></item></channel></rss>
