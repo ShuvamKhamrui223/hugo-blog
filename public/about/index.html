@@ -27,38 +27,60 @@
 </head>
   <body>
     <nav class="navbar">
-    <ul class="">
-      
-      <li>
-        <a href="/hugo-blog/" class="text-gray-700 dark:text-slate-200 hover:text-orange-500">
-          Home
-        </a>
-      </li>
-      
-      <li>
-        <a href="/hugo-blog/about/" class="text-gray-700 dark:text-slate-200 hover:text-orange-500">
-          About
-        </a>
-      </li>
-      
-      <li>
-        <a href="/hugo-blog/tags/" class="text-gray-700 dark:text-slate-200 hover:text-orange-500">
-          Tags
-        </a>
-      </li>
-      
-      <li>
-        <a href="/hugo-blog/categories/" class="text-gray-700 dark:text-slate-200 hover:text-orange-500">
-          Categories
-        </a>
-      </li>
-      
-    </ul>
+  <ul class="">
+     
+    <li>
+      <a
+        href="/hugo-blog/"
+        class="
+          other-page
+        "
+      >
+        Home
+      </a>
+    </li>
     
-  </nav>
-   <div id="search" class="search-bar-container"></div>
+    <li>
+      <a
+        href="/hugo-blog/about/"
+        class="
+          other-page
+        "
+      >
+        About
+      </a>
+    </li>
+    
+    <li>
+      <a
+        href="/hugo-blog/tags/"
+        class="
+          other-page
+        "
+      >
+        Tags
+      </a>
+    </li>
+    
+    <li>
+      <a
+        href="/hugo-blog/categories/"
+        class="
+          other-page
+        "
+      >
+        Categories
+      </a>
+    </li>
+    
+  </ul>
+  
+</nav>
+ <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
 <script src="/pagefind/pagefind-ui.js"></script>
-<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+
+<div id="search" class="search-bar-container"></div>
+
 <script>
   window.addEventListener("DOMContentLoaded", (event) => {
     new PagefindUI({
