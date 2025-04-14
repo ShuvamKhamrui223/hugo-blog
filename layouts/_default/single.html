@@ -27,12 +27,13 @@
   </aside>
 </section>
 
+{{ with site.RegularPages.Related . | first 5 }}
 <section class="related-posts">
   <h4>related posts</h4>
-  {{ with site.RegularPages.Related . | first 5 }} {{ range . }}
+  {{ range . }}
   <a href="{{.RelPermalink}}">
     <p class="related-post-title">{{.LinkTitle}}</p>
   </a>
-  {{ end }} {{ end }}
+  {{ end }}
 </section>
-{{ end }}
+{{ end }} {{ end }}

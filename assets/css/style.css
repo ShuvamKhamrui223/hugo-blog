@@ -32,7 +32,8 @@
   --xl: 1440x;
 }
 
-ul {
+ul,
+ol {
   list-style-type: none;
   text-decoration: none;
 }
@@ -40,7 +41,7 @@ ul {
 a {
   text-decoration: none;
   color: initial;
-  font-family: var(--font-family-1);
+  font-family: var(--font-family-2);
 }
 
 .blog-content h1,
@@ -53,6 +54,16 @@ a {
   line-height: 5rem;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  font-family: var(--font-family-1);
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding: 4rem;
@@ -63,13 +74,16 @@ body {
   min-height: 100vh;
   background-color: var(--bg-color);
   font-size: 1.6rem;
+  font-family: var(--font-family-2);
+  font-weight: 400;
 }
 
 main {
   padding: 5% 4%;
   min-height: 90vh;
 }
-@media (width <= 640px) {
+
+@media (width <=640px) {
   main {
     padding-inline: 2rem;
   }
@@ -206,11 +220,13 @@ main {
     color: hsl(300, 47%, 25%);
   }
 }
+
 .post-card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .post-category {
   letter-spacing: 0.1rem;
   font-size: 1.4rem;
@@ -415,7 +431,7 @@ details {
   width: 25%;
 }
 
-@media (width <= 768px) {
+@media (width <=768px) {
   .blog-toc-mobile {
     width: 100%;
     background-color: hsla(from var(--navbar-bg-color) h s 98%);
@@ -442,4 +458,29 @@ details {
 
 .related-post-title {
   margin-top: 1rem;
+}
+
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    font-size: 14rem;
+    font-weight: 800;
+    color: var(--taxonomy-term-color);
+  }
+
+  p {
+    color: var(--text-color);
+    margin-block: 1rem;
+  }
+
+  .back-to-home-link {
+    background-color: hsl(from var(--taxonomy-term-color) h s 10%);
+    padding: 1rem 1.7rem;
+    text-transform: capitalize;
+    color: hsl(from var(--post-bg-color) h s 90%);
+  }
 }
