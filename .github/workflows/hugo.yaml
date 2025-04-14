@@ -33,6 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.145.0
+      EXTENDED: true
       HUGO_ENVIRONMENT: production
       TZ: America/Los_Angeles
     steps:

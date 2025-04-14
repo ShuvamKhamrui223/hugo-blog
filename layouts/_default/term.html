@@ -19,18 +19,6 @@
         <span class="material-symbols-outlined"> calendar_month </span>
         {{ .PublishDate | time.Format ":date_medium" }}</span
       >
-      <!-- </div> -->
-
-      <!-- <div class="" style="display: block">
-        {{ range .Params.authors }}
-        <p class="post-category">
-          Written by
-          <a href="/authors/{{ . | urlize }}">
-            <span class="author-name">{{.}}</span>
-          </a>
-        </p>
-        {{end}}
-      </div> -->
     </div>
 
     <a href="{{.Permalink | relURL }}">
