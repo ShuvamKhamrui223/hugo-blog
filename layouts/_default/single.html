@@ -4,14 +4,16 @@
     <header class="blog-header">
       <div class="">
         Wriiten by {{ range .Params.authors }}
-        <a href="/authors/{{. | urlize}}"><span class=""> {{.}} </span></a>
+        <a href="{{site.BaseURL}}authors/{{. | urlize}}"
+          ><span class=""> {{.}} </span></a
+        >
         {{ end }}
       </div>
       <div class="">
         published on {{ .PublishDate| time.Format ":date_medium" }}
       </div>
       {{ range .Params.categories }}
-      <a href="/categories/{{ . | urlize }}">
+      <a href="{{site.BaseURL}}categories/{{ . | urlize }}">
         <p class="post-category">{{.}}</p>
       </a>
       {{end}}

@@ -3,7 +3,7 @@
   {{ range .Paginator.Pages }}
   <div class="post-card">
     {{ range .Params.categories }}
-    <a href="{{ . | urlize }}">
+    <a href="{{site.BaseURL}}categories/{{ . | urlize }}">
       <p class="post-category">{{.}}</p>
     </a>
     {{end}}
@@ -40,7 +40,7 @@
 
     <div class="post-tag-list">
       {{ range .Params.tags }}
-      <a href="/tags/{{ . | urlize }}/">
+      <a href="{{site.BaseURL}}tags/{{ . | urlize }}/">
         <p class="post-tag">{{ . }}</p>
       </a>
       {{ end }}
@@ -66,7 +66,7 @@
       {{ range .Params.authors }}
       <p class="post-category">
         Written by
-        <a href="/authors/{{ . | urlize }}">
+        <a href="{{site.BaseURL}}authors/{{ . | urlize }}">
           <span class="author-name">{{.}}</span>
         </a>
       </p>
