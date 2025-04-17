@@ -1,1 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Authors on My New Hugo Site</title><link>https://shuvamkhamrui223.github.io/hugo-blog/authors/</link><description>Recent content in Authors on My New Hugo Site</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://shuvamkhamrui223.github.io/hugo-blog/authors/index.xml" rel="self" type="application/rss+xml"/><item><title>John Doe</title><link>https://shuvamkhamrui223.github.io/hugo-blog/authors/john-doe/</link><pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/authors/john-doe/</guid><description/></item><item><title>Emma Green</title><link>https://shuvamkhamrui223.github.io/hugo-blog/authors/emma-green/</link><pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/authors/emma-green/</guid><description/></item><item><title>Alice Johnson</title><link>https://shuvamkhamrui223.github.io/hugo-blog/authors/alice-johnson/</link><pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/authors/alice-johnson/</guid><description/></item><item><title>Charlie Brown</title><link>https://shuvamkhamrui223.github.io/hugo-blog/authors/charlie-brown/</link><pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/authors/charlie-brown/</guid><description/></item><item><title>Wanderlust Willow</title><link>https://shuvamkhamrui223.github.io/hugo-blog/authors/wanderlust-willow/</link><pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate><guid>https://shuvamkhamrui223.github.io/hugo-blog/authors/wanderlust-willow/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on My New Hugo Site</title>
+    <link>https://shuvamkhamrui223.github.io/hugo-blog/authors/</link>
+    <description>Recent content in Authors on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://shuvamkhamrui223.github.io/hugo-blog/authors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Wanderlust Willow</title>
+      <link>https://shuvamkhamrui223.github.io/hugo-blog/authors/wanderlust-willow/</link>
+      <pubDate>Tue, 15 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://shuvamkhamrui223.github.io/hugo-blog/authors/wanderlust-willow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>John Doe</title>
+      <link>https://shuvamkhamrui223.github.io/hugo-blog/authors/john-doe/</link>
+      <pubDate>Mon, 20 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://shuvamkhamrui223.github.io/hugo-blog/authors/john-doe/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Emma Green</title>
+      <link>https://shuvamkhamrui223.github.io/hugo-blog/authors/emma-green/</link>
+      <pubDate>Tue, 10 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://shuvamkhamrui223.github.io/hugo-blog/authors/emma-green/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Alice Johnson</title>
+      <link>https://shuvamkhamrui223.github.io/hugo-blog/authors/alice-johnson/</link>
+      <pubDate>Wed, 04 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://shuvamkhamrui223.github.io/hugo-blog/authors/alice-johnson/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Charlie Brown</title>
+      <link>https://shuvamkhamrui223.github.io/hugo-blog/authors/charlie-brown/</link>
+      <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>https://shuvamkhamrui223.github.io/hugo-blog/authors/charlie-brown/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

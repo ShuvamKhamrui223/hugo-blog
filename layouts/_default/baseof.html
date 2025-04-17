@@ -4,6 +4,8 @@
   <body>
     {{ partial "common/navbar.html" . }} {{ partial "pagefind.html" . }}
     <main>{{ block "main" . }} {{ end }}</main>
+
+    {{ partial "TallyForm.html" . }}
     {{ partial "common/footer.html" . }}
 
     <!-- external scripts -->

@@ -1,69 +1,256 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Search form with React router | My New Hugo Site
-</title><meta name=description content="Exploring emerging trends and technologies shaping the web development landscape in 2025."><link rel=stylesheet href=https://shuvamkhamrui223.github.io/hugo-blog/css/style.min.css><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel=stylesheet></head><body><nav class=navbar><ul><li><a href=/hugo-blog/>Home</a></li><li><a href=/hugo-blog/about/>About</a></li><li><a href=/hugo-blog/tags/>Tags</a></li><li><a href=/hugo-blog/categories/>Categories</a></li></ul></nav><link href=/pagefind/pagefind-ui.css rel=stylesheet><script src=/pagefind/pagefind-ui.js></script><div id=search class=search-bar-container></div><script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",showSubResults:!0})})</script><main><section class=blog-layout><article class=blog-content><header class=blog-header><div>Wriiten by
-<a href=https://shuvamkhamrui223.github.io/hugo-blog/authors/john-doe><span>John Doe</span></a></div><div>published on Jan 20, 2025</div><a href=https://shuvamkhamrui223.github.io/hugo-blog/categories/web-development><p class=post-category>Web Development</p></a></header><h2 id=search-form-with-react-router>Search form with React router</h2><p>Here&rsquo;s an example of a search form using React Router v6&rsquo;s <code>useNavigate</code> hook for redirection upon form submission:</p><h3 id=steps>Steps</h3><ol><li><p><strong>Install React Router</strong>: If you haven&rsquo;t already installed React Router, use the following command to add it to your project:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npm install react-router-dom
-</span></span></code></pre></div></li><li><p><strong>Create a Search Form Component</strong>: This component uses the <code>useNavigate</code> hook to programmatically navigate to the <code>/search?q=searchterm</code> route when the form is submitted.</p></li></ol><h3 id=searchformjs>SearchForm.js</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span>, { <span style=color:#a6e22e>useState</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react&#39;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>useNavigate</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react-router-dom&#39;</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>SearchForm</span> <span style=color:#f92672>=</span> () =&gt; {
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>searchTerm</span>, <span style=color:#a6e22e>setSearchTerm</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useState</span>(<span style=color:#e6db74>&#39;&#39;</span>);
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>navigate</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>useNavigate</span>();
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>handleSubmit</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>e</span>) =&gt; {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>preventDefault</span>();
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>searchTerm</span>.<span style=color:#a6e22e>trim</span>()) {
-</span></span><span style=display:flex><span>      <span style=color:#75715e>// Redirect to /search?q=searchterm
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>      <span style=color:#a6e22e>navigate</span>(<span style=color:#e6db74>`/search?q=</span><span style=color:#e6db74>${</span>encodeURIComponent(<span style=color:#a6e22e>searchTerm</span>)<span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>);
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>  };
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>form</span> <span style=color:#a6e22e>onSubmit</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>handleSubmit</span>}<span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>input</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;text&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>value</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>searchTerm</span>}
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>onChange</span><span style=color:#f92672>=</span>{(<span style=color:#a6e22e>e</span>) =&gt; <span style=color:#a6e22e>setSearchTerm</span>(<span style=color:#a6e22e>e</span>.<span style=color:#a6e22e>target</span>.<span style=color:#a6e22e>value</span>)}
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>placeholder</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;Search...&#34;</span>
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>required</span>
-</span></span><span style=display:flex><span>      <span style=color:#f92672>/&gt;</span>
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>button</span> <span style=color:#a6e22e>type</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;submit&#34;</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Search</span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/button&gt;</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/form&gt;</span>
-</span></span><span style=display:flex><span>  );
-</span></span><span style=display:flex><span>};
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>SearchForm</span>;
-</span></span></code></pre></div><h3 id=appjs>App.js</h3><p>In your main app file, set up the routes and include the <code>SearchForm</code> component. Here’s how you can define the routes:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react&#39;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>BrowserRouter</span> <span style=color:#a6e22e>as</span> <span style=color:#a6e22e>Router</span>, <span style=color:#a6e22e>Routes</span>, <span style=color:#a6e22e>Route</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react-router-dom&#39;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>SearchForm</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;./SearchForm&#39;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>SearchResults</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;./SearchResults&#39;</span>; <span style=color:#75715e>// Assuming you have a SearchResults component
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>App</span> <span style=color:#f92672>=</span> () =&gt; {
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>Router</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>SearchForm</span> <span style=color:#f92672>/&gt;</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>Routes</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>Route</span> <span style=color:#a6e22e>path</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/search&#34;</span> <span style=color:#a6e22e>element</span><span style=color:#f92672>=</span>{<span style=color:#f92672>&lt;</span><span style=color:#a6e22e>SearchResults</span> <span style=color:#f92672>/&gt;</span>} <span style=color:#f92672>/&gt;</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/Routes&gt;</span>
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/Router&gt;</span>
-</span></span><span style=display:flex><span>  );
-</span></span><span style=display:flex><span>};
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>App</span>;
-</span></span></code></pre></div><h3 id=searchresultsjs>SearchResults.js</h3><p>This component will display the search results based on the query parameter <code>q</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react&#39;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>useSearchParams</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react-router-dom&#39;</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>SearchResults</span> <span style=color:#f92672>=</span> () =&gt; {
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>searchParams</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useSearchParams</span>();
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>query</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>searchParams</span>.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#39;q&#39;</span>); <span style=color:#75715e>// Get the search query from the URL
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>h1</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Search</span> <span style=color:#a6e22e>Results</span> <span style=color:#66d9ef>for</span> <span style=color:#e6db74>&#34;{query}&#34;</span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/h1&gt;</span>
-</span></span><span style=display:flex><span>      {<span style=color:#75715e>/* You can add logic to fetch and display search results here */</span>}
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
-</span></span><span style=display:flex><span>  );
-</span></span><span style=display:flex><span>};
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>SearchResults</span>;
-</span></span></code></pre></div><h3 id=key-notes>Key Notes</h3><ul><li><strong>useNavigate</strong>: This hook is used for programmatic navigation. After submitting the form, it redirects the user to the <code>/search?q=searchterm</code> route.</li><li><strong>useSearchParams</strong>: This hook helps extract the query parameters from the URL in the <code>SearchResults</code> component.</li></ul><p>This setup should handle the search and redirection flow in your React app using React Router v6.</p></article><aside class=blog-toc-mobile><details><summary>table of content</summary><nav id=TableOfContents><ul><li><a href=#search-form-with-react-router>Search form with React router</a><ul><li><a href=#steps>Steps</a></li><li><a href=#searchformjs>SearchForm.js</a></li><li><a href=#appjs>App.js</a></li><li><a href=#searchresultsjs>SearchResults.js</a></li><li><a href=#key-notes>Key Notes</a></li></ul></li></ul></nav></details></aside></section><section class=related-posts><h4>related posts</h4><a href=/hugo-blog/webdev/integrate-gemini-to-website/><p class=related-post-title>Incorporating Gemini AI into your manga reading website</p></a><a href=/hugo-blog/webdev/react-middleware/><p class=related-post-title>React middleware authentication</p></a><a href=/hugo-blog/webdev/retrieve-array-from-firebase/><p class=related-post-title>Retrieve array from firebase</p></a><a href=/hugo-blog/webdev/data/><p class=related-post-title>current page link styling in react js with tailwind css</p></a></section></main><footer><p>developed by <strong>shuvam khamrui</strong></p></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+  
+  Search form with React router | My New Hugo Site 
+</title>
+
+
+    <meta name="description" content="Exploring emerging trends and technologies shaping the web development landscape in 2025.">
+
+
+
+    
+     
+<link rel="stylesheet" href="https://shuvamkhamrui223.github.io/hugo-blog/css/style.min.css" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  rel="stylesheet"
+/>
+
+
+     
+      
+</head>
+  <body>
+    <nav class="navbar">
+  <ul class="">
+    
+    <li>
+      <a href="/hugo-blog/" class=""> Home </a>
+    </li>
+    
+    <li>
+      <a href="/hugo-blog/about/" class=""> About </a>
+    </li>
+    
+    <li>
+      <a href="/hugo-blog/tags/" class=""> Tags </a>
+    </li>
+    
+    <li>
+      <a href="/hugo-blog/categories/" class=""> Categories </a>
+    </li>
+    
+  </ul>
+  
+</nav>
+ <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script src="/pagefind/pagefind-ui.js"></script>
+<div id="search"></div>
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({ element: "#search", showSubResults: true });
+  });
+</script>
+
+    <main>
+<section class="blog-layout">
+  <article class="blog-content">
+    <header class="blog-header">
+      <div class="">
+        Wriiten by 
+        <a href="https://shuvamkhamrui223.github.io/hugo-blog/authors/john-doe"
+          ><span class=""> John Doe </span></a
+        >
+        
+      </div>
+      <div class="">
+        published on Jan 20, 2025
+      </div>
+      
+      <a href="https://shuvamkhamrui223.github.io/hugo-blog/categories/web-development">
+        <p class="post-category">Web Development</p>
+      </a>
+      
+    </header>
+    <h2 id="search-form-with-react-router">Search form with React router</h2>
+<p>Here&rsquo;s an example of a search form using React Router v6&rsquo;s <code>useNavigate</code> hook for redirection upon form submission:</p>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>
+<p><strong>Install React Router</strong>: If you haven&rsquo;t already installed React Router, use the following command to add it to your project:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install react-router-dom
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Create a Search Form Component</strong>: This component uses the <code>useNavigate</code> hook to programmatically navigate to the <code>/search?q=searchterm</code> route when the form is submitted.</p>
+</li>
+</ol>
+<h3 id="searchformjs">SearchForm.js</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useNavigate</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SearchForm</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">searchTerm</span>, <span style="color:#a6e22e">setSearchTerm</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>(<span style="color:#e6db74">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">navigate</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">useNavigate</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">handleSubmit</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">e</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">preventDefault</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">searchTerm</span>.<span style="color:#a6e22e">trim</span>()) {
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// Redirect to /search?q=searchterm
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">navigate</span>(<span style="color:#e6db74">`/search?q=</span><span style="color:#e6db74">${</span>encodeURIComponent(<span style="color:#a6e22e">searchTerm</span>)<span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">form</span> <span style="color:#a6e22e">onSubmit</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">handleSubmit</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">input</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">value</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">searchTerm</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">onChange</span><span style="color:#f92672">=</span>{(<span style="color:#a6e22e">e</span>) =&gt; <span style="color:#a6e22e">setSearchTerm</span>(<span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">target</span>.<span style="color:#a6e22e">value</span>)}
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Search...&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">required</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Search</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/button&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/form&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">SearchForm</span>;
+</span></span></code></pre></div><h3 id="appjs">App.js</h3>
+<p>In your main app file, set up the routes and include the <code>SearchForm</code> component. Here’s how you can define the routes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">BrowserRouter</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">Router</span>, <span style="color:#a6e22e">Routes</span>, <span style="color:#a6e22e">Route</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SearchForm</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./SearchForm&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SearchResults</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./SearchResults&#39;</span>; <span style="color:#75715e">// Assuming you have a SearchResults component
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">App</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Router</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">SearchForm</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Routes</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Route</span> <span style="color:#a6e22e">path</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/search&#34;</span> <span style="color:#a6e22e">element</span><span style="color:#f92672">=</span>{<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">SearchResults</span> <span style="color:#f92672">/&gt;</span>} <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Routes&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Router&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">App</span>;
+</span></span></code></pre></div><h3 id="searchresultsjs">SearchResults.js</h3>
+<p>This component will display the search results based on the query parameter <code>q</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">useSearchParams</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-router-dom&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SearchResults</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">searchParams</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useSearchParams</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">query</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">searchParams</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;q&#39;</span>); <span style="color:#75715e">// Get the search query from the URL
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">h1</span><span style="color:#f92672">&gt;</span><span style="color:#a6e22e">Search</span> <span style="color:#a6e22e">Results</span> <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#34;{query}&#34;</span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/h1&gt;</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#75715e">/* You can add logic to fetch and display search results here */</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">SearchResults</span>;
+</span></span></code></pre></div><h3 id="key-notes">Key Notes</h3>
+<ul>
+<li><strong>useNavigate</strong>: This hook is used for programmatic navigation. After submitting the form, it redirects the user to the <code>/search?q=searchterm</code> route.</li>
+<li><strong>useSearchParams</strong>: This hook helps extract the query parameters from the URL in the <code>SearchResults</code> component.</li>
+</ul>
+<p>This setup should handle the search and redirection flow in your React app using React Router v6.</p>
+
+  </article>
+
+  <aside class="blog-toc-mobile">
+    <details>
+      <summary>table of content</summary>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#search-form-with-react-router">Search form with React router</a>
+      <ul>
+        <li><a href="#steps">Steps</a></li>
+        <li><a href="#searchformjs">SearchForm.js</a></li>
+        <li><a href="#appjs">App.js</a></li>
+        <li><a href="#searchresultsjs">SearchResults.js</a></li>
+        <li><a href="#key-notes">Key Notes</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
+  </aside>
+</section>
+
+
+<section class="related-posts">
+  <h4>related posts</h4>
+  
+  <a href="/hugo-blog/webdev/integrate-gemini-to-website/">
+    <p class="related-post-title">Incorporating Gemini AI into your manga reading website</p>
+  </a>
+  
+  <a href="/hugo-blog/webdev/react-middleware/">
+    <p class="related-post-title">React middleware authentication</p>
+  </a>
+  
+  <a href="/hugo-blog/webdev/retrieve-array-from-firebase/">
+    <p class="related-post-title">Retrieve array from firebase</p>
+  </a>
+  
+  <a href="/hugo-blog/webdev/data/">
+    <p class="related-post-title">current page link styling in react js with tailwind css</p>
+  </a>
+  
+</section>
+ </main>
+
+    <div class="tally-form-container">
+  <h3 class="">your feedback</h3>
+  <iframe
+    data-tally-src="https://tally.so/embed/w2R9G9?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+    loading="lazy"
+    width="100%"
+    height="337"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    title="Feedback form"
+  ></iframe>
+</div>
+<script>
+  var d = document,
+    w = "https://tally.so/widgets/embed.js",
+    v = function () {
+      "undefined" != typeof Tally
+        ? Tally.loadEmbeds()
+        : d
+            .querySelectorAll("iframe[data-tally-src]:not([src])")
+            .forEach(function (e) {
+              e.src = e.dataset.tallySrc;
+            });
+    };
+  if ("undefined" != typeof Tally) v();
+  else if (d.querySelector('script[src="' + w + '"]') == null) {
+    var s = d.createElement("script");
+    (s.src = w), (s.onload = v), (s.onerror = v), d.body.appendChild(s);
+  }
+</script>
+
+    <footer class="">
+  <p class="">
+    developed by <strong class="">shuvam khamrui</strong>
+  </p>
+</footer>
+
+
+    
+    
+  </body>
+</html>

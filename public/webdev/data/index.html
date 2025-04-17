@@ -1,122 +1,329 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>current page link styling in react js with tailwind css | My New Hugo Site
-</title><meta name=description content="Steps to Style Current Page NavLink in react js with tailwind css"><link rel=stylesheet href=https://shuvamkhamrui223.github.io/hugo-blog/css/style.min.css><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel=stylesheet></head><body><nav class=navbar><ul><li><a href=/hugo-blog/>Home</a></li><li><a href=/hugo-blog/about/>About</a></li><li><a href=/hugo-blog/tags/>Tags</a></li><li><a href=/hugo-blog/categories/>Categories</a></li></ul></nav><link href=/pagefind/pagefind-ui.css rel=stylesheet><script src=/pagefind/pagefind-ui.js></script><div id=search class=search-bar-container></div><script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",showSubResults:!0})})</script><main><section class=blog-layout><article class=blog-content><header class=blog-header><div>Wriiten by
-<a href=https://shuvamkhamrui223.github.io/hugo-blog/authors/john-doe><span>John Doe</span></a></div><div>published on Jan 20, 2025</div><a href=https://shuvamkhamrui223.github.io/hugo-blog/categories/web-development><p class=post-category>Web Development</p></a></header><h2 id=current-page-link-styling>current page link styling</h2><p>You can style the current page NavLink differently in a React application using React Router and Tailwind CSS by utilizing the isActive property provided by the NavLink component. Here&rsquo;s how to do it:</p><p>Steps to Style Current Page NavLink</p><p>• Use NavLink Component: React Router&rsquo;s NavLink provides an isActive boolean property that indicates whether the link corresponds to the current route.</p><p>• Apply Tailwind Classes Dynamically: Use a function to apply conditional Tailwind classes based on the isActive property.</p><p>Code Example</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>NavLink</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;react-router-dom&#34;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Navbar</span> <span style=color:#f92672>=</span> () =&gt; {
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>nav</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;bg-gray-800 p-4&#34;</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>ul</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;flex space-x-4&#34;</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>li</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>NavLink</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>to</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/&#34;</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span>{({ <span style=color:#a6e22e>isActive</span> }) =&gt;
-</span></span><span style=display:flex><span>              <span style=color:#a6e22e>isActive</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34;text-white font-bold border-b-2 border-white&#34;</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;text-gray-400 hover:text-white&#34;</span>
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>            {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>Home</span>{<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/NavLink&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/li&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>li</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>          {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>NavLink</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>to</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/about&#34;</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span>{({ <span style=color:#a6e22e>isActive</span> }) =&gt;
-</span></span><span style=display:flex><span>              <span style=color:#a6e22e>isActive</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34;text-white font-bold border-b-2 border-white&#34;</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;text-gray-400 hover:text-white&#34;</span>
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>            {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>About</span>{<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/NavLink&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/li&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>li</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>          {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>NavLink</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>to</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/contact&#34;</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span>{({ <span style=color:#a6e22e>isActive</span> }) =&gt;
-</span></span><span style=display:flex><span>              <span style=color:#a6e22e>isActive</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34;text-white font-bold border-b-2 border-white&#34;</span>
-</span></span><span style=display:flex><span>                <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;text-gray-400 hover:text-white&#34;</span>
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>            {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>Contact</span>{<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/NavLink&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/li&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/ul&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/nav&gt;</span>
-</span></span><span style=display:flex><span>  );
-</span></span><span style=display:flex><span>};
-</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>Navbar</span>;
-</span></span></code></pre></div><p>Explanation</p><p>• className Prop:</p><p>• The className prop of NavLink accepts a function that receives an isActive property.</p><p>• You can return a string of Tailwind classes based on whether isActive is true or false.</p><p>• Active Styles:</p><p>• When isActive is true, apply specific styles (e.g., text-white font-bold border-b-2 border-white).</p><p>• When isActive is false, apply default styles (e.g., text-gray-400 hover:text-white).</p><p>• Tailwind Classes:</p><p>• text-white: White text for the active link.</p><p>• font-bold: Bold text for the active link.</p><p>• border-b-2 border-white: Adds a white underline for the active link.</p><p>• text-gray-400: Gray text for inactive links.</p><p>• hover:text-white: Changes text color to white on hover.</p><p>Result</p><p>• The current page&rsquo;s navigation link will have distinct styles (e.g., bold text, underline).</p><p>• Inactive links will have a default appearance but change on hover.</p><p>Additional Tips</p><p>• Dynamic Styling: If you have a lot of links and need reusable logic, extract the className logic into a function:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>navLinkClass</span> <span style=color:#f92672>=</span> (<span style=color:#a6e22e>isActive</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>boolean</span>) =&gt;
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>isActive</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34;text-white font-bold border-b-2 border-white&#34;</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;text-gray-400 hover:text-white&#34;</span>;
-</span></span></code></pre></div><p>Then use it in your NavLink:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#f92672>&lt;</span><span style=color:#a6e22e>NavLink</span> <span style=color:#a6e22e>to</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/&#34;</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span>{({ <span style=color:#a6e22e>isActive</span> }) =&gt; <span style=color:#a6e22e>navLinkClass</span>(<span style=color:#a6e22e>isActive</span>)}<span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>  {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>Home</span>{<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/NavLink&gt;</span>
-</span></span></code></pre></div><p>• Mobile Navigation: Use responsive utilities like sm:hidden or lg:flex to style links differently for mobile and desktop views.</p><p>Let me know if you need further assistance!</p><p>If you have general styles that should always be applied to your NavLink components, irrespective of whether they are active or not, you can combine the general styles with the conditional active styles. Here&rsquo;s how you can do it:</p><p>Code Example with General Styles</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>NavLink</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;react-router-dom&#34;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>Navbar</span> <span style=color:#f92672>=</span> () =&gt; {
-</span></span><span style=display:flex><span>  <span style=color:#75715e>//   Define the base styles
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>baseStyles</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;px-4 py-2 text-sm rounded transition-all&#34;</span>;
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>nav</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;bg-gray-800 p-4&#34;</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>      {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>ul</span> <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;flex space-x-4&#34;</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>        {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>li</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>          {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>NavLink</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>to</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/&#34;</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span>{({ <span style=color:#a6e22e>isActive</span> }) =&gt;
-</span></span><span style=display:flex><span>              <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>baseStyles</span><span style=color:#e6db74>}</span><span style=color:#e6db74> </span><span style=color:#e6db74>${</span>
-</span></span><span style=display:flex><span>                <span style=color:#a6e22e>isActive</span>
-</span></span><span style=display:flex><span>                  <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34;text-white font-bold border-b-2 border-white&#34;</span>
-</span></span><span style=display:flex><span>                  <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;text-gray-400 hover:text-white&#34;</span>
-</span></span><span style=display:flex><span>              <span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>            {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>Home</span>{<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/NavLink&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/li&gt; &lt;li&gt;</span>
-</span></span><span style=display:flex><span>          {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>NavLink</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>to</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/about&#34;</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span>{({ <span style=color:#a6e22e>isActive</span> }) =&gt;
-</span></span><span style=display:flex><span>              <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>baseStyles</span><span style=color:#e6db74>}</span><span style=color:#e6db74> </span><span style=color:#e6db74>${</span>
-</span></span><span style=display:flex><span>                <span style=color:#a6e22e>isActive</span>
-</span></span><span style=display:flex><span>                  <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34;text-white font-bold border-b-2 border-white&#34;</span>
-</span></span><span style=display:flex><span>                  <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;text-gray-400 hover:text-white&#34;</span>
-</span></span><span style=display:flex><span>              <span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>            {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>About</span>{<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/NavLink&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/li&gt; &lt;li&gt;</span>
-</span></span><span style=display:flex><span>          {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>NavLink</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>to</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/contact&#34;</span>
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>className</span><span style=color:#f92672>=</span>{({ <span style=color:#a6e22e>isActive</span> }) =&gt;
-</span></span><span style=display:flex><span>              <span style=color:#e6db74>`</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>baseStyles</span><span style=color:#e6db74>}</span><span style=color:#e6db74> </span><span style=color:#e6db74>${</span>
-</span></span><span style=display:flex><span>                <span style=color:#a6e22e>isActive</span>
-</span></span><span style=display:flex><span>                  <span style=color:#f92672>?</span> <span style=color:#e6db74>&#34;text-white font-bold border-b-2 border-white&#34;</span>
-</span></span><span style=display:flex><span>                  <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;text-gray-400 hover:text-white&#34;</span>
-</span></span><span style=display:flex><span>              <span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>
-</span></span><span style=display:flex><span>            }
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>            {<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>Contact</span>{<span style=color:#e6db74>&#34; &#34;</span>}
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/NavLink&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/li&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>      <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/ul&gt;{&#34; &#34;}</span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/nav&gt;</span>
-</span></span><span style=display:flex><span>  );
-</span></span><span style=display:flex><span>};
-</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>Navbar</span>;
-</span></span></code></pre></div><p>Explanation</p><p>• Base Styles:</p><p>• The baseStyles variable contains general styles (px-4 py-2 text-sm rounded transition-all) that are applied to all links, regardless of their active state.</p><p>• These include padding, text size, rounded corners, and transitions for smooth hover effects.</p><p>• Active and Inactive Styles:</p><p>• Conditional styles (isActive ? &mldr; : &mldr;) are appended to the base styles.</p><p>• Active links get specific styles (e.g., text-white font-bold border-b-2 border-white).</p><p>• Inactive links get default styles (e.g., text-gray-400 hover:text-white).</p><p>• Combining Styles:</p><p>• The ${baseStyles} ensures the general styles are always applied.</p><p>• ${isActive ? &mldr; : &mldr;} dynamically adds active or inactive styles.</p><p>Result</p><p>• All NavLink components will have the base styles (e.g., padding, rounded corners).</p><p>• The current page&rsquo;s link will have distinct active styles (e.g., bold text, underline).</p><p>• Inactive links will retain their default appearance with hover effects.</p><p>Reusable Function for Styling</p><p>If you want to make the styling reusable across multiple components, create a helper function:</p><p>const getNavLinkClass = (isActive: boolean) => <code>px-4 py-2 text-sm rounded transition-all ${ isActive ? "text-white font-bold border-b-2 border-white" : "text-gray-400 hover:text-white" }</code>;</p><p>Then use it in your NavLink components:</p><p>&lt;NavLink to="/" className={({ isActive }) => getNavLinkClass(isActive)}> Home</navlink></p><p>This approach keeps your code clean and DRY (Don&rsquo;t Repeat Yourself). Let me know if you need more enhancements!</p></article><aside class=blog-toc-mobile><details><summary>table of content</summary><nav id=TableOfContents><ul><li><a href=#current-page-link-styling>current page link styling</a></li></ul></nav></details></aside></section><section class=related-posts><h4>related posts</h4><a href=/hugo-blog/webdev/integrate-gemini-to-website/><p class=related-post-title>Incorporating Gemini AI into your manga reading website</p></a><a href=/hugo-blog/webdev/react-middleware/><p class=related-post-title>React middleware authentication</p></a><a href=/hugo-blog/webdev/react-router-search-form/><p class=related-post-title>Search form with React router</p></a><a href=/hugo-blog/webdev/retrieve-array-from-firebase/><p class=related-post-title>Retrieve array from firebase</p></a></section></main><footer><p>developed by <strong>shuvam khamrui</strong></p></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+  
+  current page link styling in react js with tailwind css | My New Hugo Site 
+</title>
+
+
+    <meta name="description" content="Steps to Style Current Page NavLink in react js with tailwind css">
+
+
+
+    
+     
+<link rel="stylesheet" href="https://shuvamkhamrui223.github.io/hugo-blog/css/style.min.css" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  rel="stylesheet"
+/>
+
+
+     
+      
+</head>
+  <body>
+    <nav class="navbar">
+  <ul class="">
+    
+    <li>
+      <a href="/hugo-blog/" class=""> Home </a>
+    </li>
+    
+    <li>
+      <a href="/hugo-blog/about/" class=""> About </a>
+    </li>
+    
+    <li>
+      <a href="/hugo-blog/tags/" class=""> Tags </a>
+    </li>
+    
+    <li>
+      <a href="/hugo-blog/categories/" class=""> Categories </a>
+    </li>
+    
+  </ul>
+  
+</nav>
+ <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script src="/pagefind/pagefind-ui.js"></script>
+<div id="search"></div>
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({ element: "#search", showSubResults: true });
+  });
+</script>
+
+    <main>
+<section class="blog-layout">
+  <article class="blog-content">
+    <header class="blog-header">
+      <div class="">
+        Wriiten by 
+        <a href="https://shuvamkhamrui223.github.io/hugo-blog/authors/john-doe"
+          ><span class=""> John Doe </span></a
+        >
+        
+      </div>
+      <div class="">
+        published on Jan 20, 2025
+      </div>
+      
+      <a href="https://shuvamkhamrui223.github.io/hugo-blog/categories/web-development">
+        <p class="post-category">Web Development</p>
+      </a>
+      
+    </header>
+    <h2 id="current-page-link-styling">current page link styling</h2>
+<p>You can style the current page NavLink differently in a React application using React Router and Tailwind CSS by utilizing the isActive property provided by the NavLink component. Here&rsquo;s how to do it:</p>
+<p>Steps to Style Current Page NavLink</p>
+<p>• Use NavLink Component: React Router&rsquo;s NavLink provides an isActive boolean property that indicates whether the link corresponds to the current route.</p>
+<p>• Apply Tailwind Classes Dynamically: Use a function to apply conditional Tailwind classes based on the isActive property.</p>
+<p>Code Example</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NavLink</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-router-dom&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Navbar</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">nav</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bg-gray-800 p-4&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ul</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flex space-x-4&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">NavLink</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span>{({ <span style="color:#a6e22e">isActive</span> }) =&gt;
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">isActive</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;text-white font-bold border-b-2 border-white&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;text-gray-400 hover:text-white&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Home</span>{<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/NavLink&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">NavLink</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/about&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span>{({ <span style="color:#a6e22e">isActive</span> }) =&gt;
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">isActive</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;text-white font-bold border-b-2 border-white&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;text-gray-400 hover:text-white&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">About</span>{<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/NavLink&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">NavLink</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/contact&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span>{({ <span style="color:#a6e22e">isActive</span> }) =&gt;
+</span></span><span style="display:flex;"><span>              <span style="color:#a6e22e">isActive</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;text-white font-bold border-b-2 border-white&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;text-gray-400 hover:text-white&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Contact</span>{<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/NavLink&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ul&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/nav&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Navbar</span>;
+</span></span></code></pre></div><p>Explanation</p>
+<p>• className Prop:</p>
+<p>• The className prop of NavLink accepts a function that receives an isActive property.</p>
+<p>• You can return a string of Tailwind classes based on whether isActive is true or false.</p>
+<p>• Active Styles:</p>
+<p>• When isActive is true, apply specific styles (e.g., text-white font-bold border-b-2 border-white).</p>
+<p>• When isActive is false, apply default styles (e.g., text-gray-400 hover:text-white).</p>
+<p>• Tailwind Classes:</p>
+<p>• text-white: White text for the active link.</p>
+<p>• font-bold: Bold text for the active link.</p>
+<p>• border-b-2 border-white: Adds a white underline for the active link.</p>
+<p>• text-gray-400: Gray text for inactive links.</p>
+<p>• hover:text-white: Changes text color to white on hover.</p>
+<p>Result</p>
+<p>• The current page&rsquo;s navigation link will have distinct styles (e.g., bold text, underline).</p>
+<p>• Inactive links will have a default appearance but change on hover.</p>
+<p>Additional Tips</p>
+<p>• Dynamic Styling: If you have a lot of links and need reusable logic, extract the className logic into a function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">navLinkClass</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">isActive</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">boolean</span>) =&gt;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">isActive</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;text-white font-bold border-b-2 border-white&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;text-gray-400 hover:text-white&#34;</span>;
+</span></span></code></pre></div><p>Then use it in your NavLink:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">NavLink</span> <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span>{({ <span style="color:#a6e22e">isActive</span> }) =&gt; <span style="color:#a6e22e">navLinkClass</span>(<span style="color:#a6e22e">isActive</span>)}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>  {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Home</span>{<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/NavLink&gt;</span>
+</span></span></code></pre></div><p>• Mobile Navigation: Use responsive utilities like sm:hidden or lg:flex to style links differently for mobile and desktop views.</p>
+<p>Let me know if you need further assistance!</p>
+<p>If you have general styles that should always be applied to your NavLink components, irrespective of whether they are active or not, you can combine the general styles with the conditional active styles. Here&rsquo;s how you can do it:</p>
+<p>Code Example with General Styles</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">NavLink</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;react-router-dom&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Navbar</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">//   Define the base styles
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">baseStyles</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;px-4 py-2 text-sm rounded transition-all&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">nav</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bg-gray-800 p-4&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ul</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;flex space-x-4&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">li</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">NavLink</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span>{({ <span style="color:#a6e22e">isActive</span> }) =&gt;
+</span></span><span style="display:flex;"><span>              <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">baseStyles</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">isActive</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;text-white font-bold border-b-2 border-white&#34;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;text-gray-400 hover:text-white&#34;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Home</span>{<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/NavLink&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt; &lt;li&gt;</span>
+</span></span><span style="display:flex;"><span>          {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">NavLink</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/about&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span>{({ <span style="color:#a6e22e">isActive</span> }) =&gt;
+</span></span><span style="display:flex;"><span>              <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">baseStyles</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">isActive</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;text-white font-bold border-b-2 border-white&#34;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;text-gray-400 hover:text-white&#34;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">About</span>{<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/NavLink&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt; &lt;li&gt;</span>
+</span></span><span style="display:flex;"><span>          {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">NavLink</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">to</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/contact&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span>{({ <span style="color:#a6e22e">isActive</span> }) =&gt;
+</span></span><span style="display:flex;"><span>              <span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">baseStyles</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">isActive</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;text-white font-bold border-b-2 border-white&#34;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;text-gray-400 hover:text-white&#34;</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>            {<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Contact</span>{<span style="color:#e6db74">&#34; &#34;</span>}
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/NavLink&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/li&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/ul&gt;{&#34; &#34;}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/nav&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">Navbar</span>;
+</span></span></code></pre></div><p>Explanation</p>
+<p>• Base Styles:</p>
+<p>• The baseStyles variable contains general styles (px-4 py-2 text-sm rounded transition-all) that are applied to all links, regardless of their active state.</p>
+<p>• These include padding, text size, rounded corners, and transitions for smooth hover effects.</p>
+<p>• Active and Inactive Styles:</p>
+<p>• Conditional styles (isActive ? &hellip; : &hellip;) are appended to the base styles.</p>
+<p>• Active links get specific styles (e.g., text-white font-bold border-b-2 border-white).</p>
+<p>• Inactive links get default styles (e.g., text-gray-400 hover:text-white).</p>
+<p>• Combining Styles:</p>
+<p>• The ${baseStyles} ensures the general styles are always applied.</p>
+<p>• ${isActive ? &hellip; : &hellip;} dynamically adds active or inactive styles.</p>
+<p>Result</p>
+<p>• All NavLink components will have the base styles (e.g., padding, rounded corners).</p>
+<p>• The current page&rsquo;s link will have distinct active styles (e.g., bold text, underline).</p>
+<p>• Inactive links will retain their default appearance with hover effects.</p>
+<p>Reusable Function for Styling</p>
+<p>If you want to make the styling reusable across multiple components, create a helper function:</p>
+<p>const getNavLinkClass = (isActive: boolean) =&gt; <code>px-4 py-2 text-sm rounded transition-all ${ isActive ? &quot;text-white font-bold border-b-2 border-white&quot; : &quot;text-gray-400 hover:text-white&quot; }</code>;</p>
+<p>Then use it in your NavLink components:</p>
+<p>&lt;NavLink to=&quot;/&quot; className={({ isActive }) =&gt; getNavLinkClass(isActive)}&gt; Home </NavLink></p>
+<p>This approach keeps your code clean and DRY (Don&rsquo;t Repeat Yourself). Let me know if you need more enhancements!</p>
+
+  </article>
+
+  <aside class="blog-toc-mobile">
+    <details>
+      <summary>table of content</summary>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#current-page-link-styling">current page link styling</a></li>
+  </ul>
+</nav>
+    </details>
+  </aside>
+</section>
+
+
+<section class="related-posts">
+  <h4>related posts</h4>
+  
+  <a href="/hugo-blog/webdev/integrate-gemini-to-website/">
+    <p class="related-post-title">Incorporating Gemini AI into your manga reading website</p>
+  </a>
+  
+  <a href="/hugo-blog/webdev/react-middleware/">
+    <p class="related-post-title">React middleware authentication</p>
+  </a>
+  
+  <a href="/hugo-blog/webdev/react-router-search-form/">
+    <p class="related-post-title">Search form with React router</p>
+  </a>
+  
+  <a href="/hugo-blog/webdev/retrieve-array-from-firebase/">
+    <p class="related-post-title">Retrieve array from firebase</p>
+  </a>
+  
+</section>
+ </main>
+
+    <div class="tally-form-container">
+  <h3 class="">your feedback</h3>
+  <iframe
+    data-tally-src="https://tally.so/embed/w2R9G9?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+    loading="lazy"
+    width="100%"
+    height="337"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    title="Feedback form"
+  ></iframe>
+</div>
+<script>
+  var d = document,
+    w = "https://tally.so/widgets/embed.js",
+    v = function () {
+      "undefined" != typeof Tally
+        ? Tally.loadEmbeds()
+        : d
+            .querySelectorAll("iframe[data-tally-src]:not([src])")
+            .forEach(function (e) {
+              e.src = e.dataset.tallySrc;
+            });
+    };
+  if ("undefined" != typeof Tally) v();
+  else if (d.querySelector('script[src="' + w + '"]') == null) {
+    var s = d.createElement("script");
+    (s.src = w), (s.onload = v), (s.onerror = v), d.body.appendChild(s);
+  }
+</script>
+
+    <footer class="">
+  <p class="">
+    developed by <strong class="">shuvam khamrui</strong>
+  </p>
+</footer>
+
+
+    
+    
+  </body>
+</html>

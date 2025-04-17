@@ -1,81 +1,282 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Retrieve array from firebase | My New Hugo Site
-</title><meta name=description content="Exploring emerging trends and technologies shaping the web development landscape in 2025."><link rel=stylesheet href=https://shuvamkhamrui223.github.io/hugo-blog/css/style.min.css><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel=stylesheet></head><body><nav class=navbar><ul><li><a href=/hugo-blog/>Home</a></li><li><a href=/hugo-blog/about/>About</a></li><li><a href=/hugo-blog/tags/>Tags</a></li><li><a href=/hugo-blog/categories/>Categories</a></li></ul></nav><link href=/pagefind/pagefind-ui.css rel=stylesheet><script src=/pagefind/pagefind-ui.js></script><div id=search class=search-bar-container></div><script>window.addEventListener("DOMContentLoaded",e=>{new PagefindUI({element:"#search",showSubResults:!0})})</script><main><section class=blog-layout><article class=blog-content><header class=blog-header><div>Wriiten by
-<a href=https://shuvamkhamrui223.github.io/hugo-blog/authors/john-doe><span>John Doe</span></a></div><div>published on Oct 10, 2023</div><a href=https://shuvamkhamrui223.github.io/hugo-blog/categories/web-development><p class=post-category>Web Development</p></a></header><h2 id=retrieve-array-from-firebase>Retrieve array from firebase</h2><p><strong>1. Project Setup</strong></p><ul><li><p><strong>Ensure Firestore is Set Up:</strong></p><ul><li><p>Create a Firebase project in the Firebase console.</p></li><li><p>Enable Firestore in your project.</p></li><li><p>Install the necessary Firebase packages:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>npm install firebase 
-</span></span></code></pre></div></li></ul></li><li><p><strong>Create a Firebase Configuration File:</strong></p><ul><li><p>Create a file named <code>firebase.js</code> (or similar) in your React project.</p></li><li><p>Import the <code>initializeApp</code> function from <code>firebase</code>.</p></li><li><p>Add your Firebase project&rsquo;s configuration details:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>initializeApp</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;firebase/app&#39;</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>firebaseConfig</span> <span style=color:#f92672>=</span> {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>apiKey</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;YOUR_API_KEY&#34;</span>,
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>authDomain</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;YOUR_PROJECT_ID.firebaseapp.com&#34;</span>,
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>projectId</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;YOUR_PROJECT_ID&#34;</span>,
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>storageBucket</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;YOUR_PROJECT_ID.appspot.com&#34;</span>,
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>messagingSenderId</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;YOUR_MESSAGING_SENDER_ID&#34;</span>,
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>appId</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;YOUR_APP_ID&#34;</span>,
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>measurementId</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;YOUR_MEASUREMENT_ID&#34;</span> 
-</span></span><span style=display:flex><span>};
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>app</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>initializeApp</span>(<span style=color:#a6e22e>firebaseConfig</span>); 
-</span></span></code></pre></div></li></ul></li></ul><p><strong>2. Retrieve Data from Firestore</strong></p><ul><li><p><strong>Import necessary modules:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>collection</span>, <span style=color:#a6e22e>getDocs</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;firebase/firestore&#34;</span>; 
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>doc</span>, <span style=color:#a6e22e>getDoc</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;firebase/firestore&#34;</span>; <span style=color:#75715e>// If you need to retrieve a single document
-</span></span></span></code></pre></div></li><li><p><strong>Create a function to fetch data:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>fetchData</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> () =&gt; {
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>try</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>querySnapshot</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getDocs</span>(<span style=color:#a6e22e>collection</span>(<span style=color:#a6e22e>db</span>, <span style=color:#e6db74>&#34;yourCollectionName&#34;</span>)); 
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>querySnapshot</span>.<span style=color:#a6e22e>docs</span>.<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>doc</span>) =&gt; ({
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>id</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>doc</span>.<span style=color:#a6e22e>id</span>,
-</span></span><span style=display:flex><span>      ...<span style=color:#a6e22e>doc</span>.<span style=color:#a6e22e>data</span>(), 
-</span></span><span style=display:flex><span>    }));
-</span></span><span style=display:flex><span>    <span style=color:#75715e>// Update your component&#39;s state with the retrieved data
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>setArrayData</span>(<span style=color:#a6e22e>data</span>); 
-</span></span><span style=display:flex><span>  } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Error getting documents: &#34;</span>, <span style=color:#a6e22e>error</span>);
-</span></span><span style=display:flex><span>  }
-</span></span><span style=display:flex><span>};
-</span></span></code></pre></div></li><li><p><strong>Call the <code>fetchData</code> function:</strong></p><ul><li><p>In your component&rsquo;s <code>useEffect</code> hook:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#a6e22e>useEffect</span>(() =&gt; {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>fetchData</span>();
-</span></span><span style=display:flex><span>}, []); 
-</span></span></code></pre></div></li></ul></li></ul><p><strong>3. Display the Data</strong></p><ul><li><p><strong>Render the array data in your JSX:</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span>{<span style=color:#a6e22e>arrayData</span>.<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>item</span>) =&gt; (
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span> <span style=color:#a6e22e>key</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>item</span>.<span style=color:#a6e22e>id</span>}<span style=color:#f92672>&gt;</span> 
-</span></span><span style=display:flex><span>    {<span style=color:#75715e>/* Display the data for each item */</span>}
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>p</span><span style=color:#f92672>&gt;</span>{<span style=color:#a6e22e>item</span>.<span style=color:#a6e22e>field1</span>}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/p&gt; </span>
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>p</span><span style=color:#f92672>&gt;</span>{<span style=color:#a6e22e>item</span>.<span style=color:#a6e22e>field2</span>}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/p&gt; </span>
-</span></span><span style=display:flex><span>  <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
-</span></span><span style=display:flex><span>))}
-</span></span></code></pre></div></li></ul><p><strong>Complete Example</strong></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>React</span>, { <span style=color:#a6e22e>useState</span>, <span style=color:#a6e22e>useEffect</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;react&#39;</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>collection</span>, <span style=color:#a6e22e>getDocs</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#34;firebase/firestore&#34;</span>; 
-</span></span><span style=display:flex><span><span style=color:#66d9ef>import</span> { <span style=color:#a6e22e>initializeApp</span> } <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;firebase/app&#39;</span>; 
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// ... (Your Firebase configuration)
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>MyComponent</span>() {
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> [<span style=color:#a6e22e>arrayData</span>, <span style=color:#a6e22e>setArrayData</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>useState</span>([]); 
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>fetchData</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>async</span> () =&gt; {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> {
-</span></span><span style=display:flex><span>      <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>querySnapshot</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>getDocs</span>(<span style=color:#a6e22e>collection</span>(<span style=color:#a6e22e>db</span>, <span style=color:#e6db74>&#34;yourCollectionName&#34;</span>));
-</span></span><span style=display:flex><span>      <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>querySnapshot</span>.<span style=color:#a6e22e>docs</span>.<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>doc</span>) =&gt; ({
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>id</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>doc</span>.<span style=color:#a6e22e>id</span>,
-</span></span><span style=display:flex><span>        ...<span style=color:#a6e22e>doc</span>.<span style=color:#a6e22e>data</span>(),
-</span></span><span style=display:flex><span>      }));
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>setArrayData</span>(<span style=color:#a6e22e>data</span>);
-</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>catch</span> (<span style=color:#a6e22e>error</span>) {
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#34;Error getting documents: &#34;</span>, <span style=color:#a6e22e>error</span>);
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>  };
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>useEffect</span>(() =&gt; {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>fetchData</span>();
-</span></span><span style=display:flex><span>  }, []);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> (
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span><span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>      {<span style=color:#a6e22e>arrayData</span>.<span style=color:#a6e22e>map</span>((<span style=color:#a6e22e>item</span>) =&gt; (
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>div</span> <span style=color:#a6e22e>key</span><span style=color:#f92672>=</span>{<span style=color:#a6e22e>item</span>.<span style=color:#a6e22e>id</span>}<span style=color:#f92672>&gt;</span>
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>p</span><span style=color:#f92672>&gt;</span>{<span style=color:#a6e22e>item</span>.<span style=color:#a6e22e>field1</span>}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/p&gt;</span>
-</span></span><span style=display:flex><span>          <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>p</span><span style=color:#f92672>&gt;</span>{<span style=color:#a6e22e>item</span>.<span style=color:#a6e22e>field2</span>}<span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/p&gt;</span>
-</span></span><span style=display:flex><span>        <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
-</span></span><span style=display:flex><span>      ))}
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/div&gt;</span>
-</span></span><span style=display:flex><span>  );
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>export</span> <span style=color:#66d9ef>default</span> <span style=color:#a6e22e>MyComponent</span>;
-</span></span></code></pre></div><p><strong>Key Considerations:</strong></p><ul><li><strong>Error Handling:</strong> Implement proper error handling to gracefully manage potential issues during data retrieval.</li><li><strong>Data Loading States:</strong> Display a loading indicator while the data is being fetched.</li><li><strong>Data Updates:</strong> If your Firestore data changes frequently, consider using real-time listeners (<code>onSnapshot</code>) for more efficient updates.</li><li><strong>Security Rules:</strong> Define appropriate security rules in your Firestore database to control data access.</li><li><strong>Data Validation:</strong> Validate the retrieved data before displaying or using it in your application.</li></ul><p>Remember to replace placeholders like <code>yourCollectionName</code>, <code>field1</code>, <code>field2</code>, and your actual Firebase configuration details with the correct values.</p></article><aside class=blog-toc-mobile><details><summary>table of content</summary><nav id=TableOfContents><ul><li><a href=#retrieve-array-from-firebase>Retrieve array from firebase</a></li></ul></nav></details></aside></section></main><footer><p>developed by <strong>shuvam khamrui</strong></p></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+  
+  Retrieve array from firebase | My New Hugo Site 
+</title>
+
+
+    <meta name="description" content="Exploring emerging trends and technologies shaping the web development landscape in 2025.">
+
+
+
+    
+     
+<link rel="stylesheet" href="https://shuvamkhamrui223.github.io/hugo-blog/css/style.min.css" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+  rel="stylesheet"
+/>
+
+
+     
+      
+</head>
+  <body>
+    <nav class="navbar">
+  <ul class="">
+    
+    <li>
+      <a href="/hugo-blog/" class=""> Home </a>
+    </li>
+    
+    <li>
+      <a href="/hugo-blog/about/" class=""> About </a>
+    </li>
+    
+    <li>
+      <a href="/hugo-blog/tags/" class=""> Tags </a>
+    </li>
+    
+    <li>
+      <a href="/hugo-blog/categories/" class=""> Categories </a>
+    </li>
+    
+  </ul>
+  
+</nav>
+ <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script src="/pagefind/pagefind-ui.js"></script>
+<div id="search"></div>
+<script>
+  window.addEventListener("DOMContentLoaded", (event) => {
+    new PagefindUI({ element: "#search", showSubResults: true });
+  });
+</script>
+
+    <main>
+<section class="blog-layout">
+  <article class="blog-content">
+    <header class="blog-header">
+      <div class="">
+        Wriiten by 
+        <a href="https://shuvamkhamrui223.github.io/hugo-blog/authors/john-doe"
+          ><span class=""> John Doe </span></a
+        >
+        
+      </div>
+      <div class="">
+        published on Oct 10, 2023
+      </div>
+      
+      <a href="https://shuvamkhamrui223.github.io/hugo-blog/categories/web-development">
+        <p class="post-category">Web Development</p>
+      </a>
+      
+    </header>
+    <h2 id="retrieve-array-from-firebase">Retrieve array from firebase</h2>
+<p><strong>1. Project Setup</strong></p>
+<ul>
+<li>
+<p><strong>Ensure Firestore is Set Up:</strong></p>
+<ul>
+<li>
+<p>Create a Firebase project in the Firebase console.</p>
+</li>
+<li>
+<p>Enable Firestore in your project.</p>
+</li>
+<li>
+<p>Install the necessary Firebase packages:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install firebase 
+</span></span></code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Create a Firebase Configuration File:</strong></p>
+<ul>
+<li>
+<p>Create a file named <code>firebase.js</code> (or similar) in your React project.</p>
+</li>
+<li>
+<p>Import the <code>initializeApp</code> function from <code>firebase</code>.</p>
+</li>
+<li>
+<p>Add your Firebase project&rsquo;s configuration details:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">initializeApp</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;firebase/app&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">firebaseConfig</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">apiKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;YOUR_API_KEY&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">authDomain</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;YOUR_PROJECT_ID.firebaseapp.com&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">projectId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;YOUR_PROJECT_ID&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">storageBucket</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;YOUR_PROJECT_ID.appspot.com&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">messagingSenderId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;YOUR_MESSAGING_SENDER_ID&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">appId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;YOUR_APP_ID&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">measurementId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;YOUR_MEASUREMENT_ID&#34;</span> 
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">initializeApp</span>(<span style="color:#a6e22e">firebaseConfig</span>); 
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Retrieve Data from Firestore</strong></p>
+<ul>
+<li>
+<p><strong>Import necessary modules:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">getDocs</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;firebase/firestore&#34;</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">doc</span>, <span style="color:#a6e22e">getDoc</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;firebase/firestore&#34;</span>; <span style="color:#75715e">// If you need to retrieve a single document
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Create a function to fetch data:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fetchData</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">querySnapshot</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">getDocs</span>(<span style="color:#a6e22e">collection</span>(<span style="color:#a6e22e">db</span>, <span style="color:#e6db74">&#34;yourCollectionName&#34;</span>)); 
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">querySnapshot</span>.<span style="color:#a6e22e">docs</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">doc</span>) =&gt; ({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">doc</span>.<span style="color:#a6e22e">id</span>,
+</span></span><span style="display:flex;"><span>      ...<span style="color:#a6e22e">doc</span>.<span style="color:#a6e22e">data</span>(), 
+</span></span><span style="display:flex;"><span>    }));
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Update your component&#39;s state with the retrieved data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">setArrayData</span>(<span style="color:#a6e22e">data</span>); 
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error getting documents: &#34;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>};
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Call the <code>fetchData</code> function:</strong></p>
+<ul>
+<li>
+<p>In your component&rsquo;s <code>useEffect</code> hook:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fetchData</span>();
+</span></span><span style="display:flex;"><span>}, []); 
+</span></span></code></pre></div></li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Display the Data</strong></p>
+<ul>
+<li>
+<p><strong>Render the array data in your JSX:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{<span style="color:#a6e22e">arrayData</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">item</span>) =&gt; (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">id</span>}<span style="color:#f92672">&gt;</span> 
+</span></span><span style="display:flex;"><span>    {<span style="color:#75715e">/* Display the data for each item */</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">field1</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt; </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">field2</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt; </span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>))}
+</span></span></code></pre></div></li>
+</ul>
+<p><strong>Complete Example</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">useState</span>, <span style="color:#a6e22e">useEffect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">collection</span>, <span style="color:#a6e22e">getDocs</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;firebase/firestore&#34;</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">initializeApp</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;firebase/app&#39;</span>; 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ... (Your Firebase configuration)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">MyComponent</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">arrayData</span>, <span style="color:#a6e22e">setArrayData</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">useState</span>([]); 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fetchData</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">querySnapshot</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">getDocs</span>(<span style="color:#a6e22e">collection</span>(<span style="color:#a6e22e">db</span>, <span style="color:#e6db74">&#34;yourCollectionName&#34;</span>));
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">querySnapshot</span>.<span style="color:#a6e22e">docs</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">doc</span>) =&gt; ({
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">doc</span>.<span style="color:#a6e22e">id</span>,
+</span></span><span style="display:flex;"><span>        ...<span style="color:#a6e22e">doc</span>.<span style="color:#a6e22e">data</span>(),
+</span></span><span style="display:flex;"><span>      }));
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setArrayData</span>(<span style="color:#a6e22e">data</span>);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error getting documents: &#34;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">useEffect</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">fetchData</span>();
+</span></span><span style="display:flex;"><span>  }, []);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> (
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>      {<span style="color:#a6e22e">arrayData</span>.<span style="color:#a6e22e">map</span>((<span style="color:#a6e22e">item</span>) =&gt; (
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">key</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">id</span>}<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">field1</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">p</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">field2</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/p&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>      ))}
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">MyComponent</span>;
+</span></span></code></pre></div><p><strong>Key Considerations:</strong></p>
+<ul>
+<li><strong>Error Handling:</strong> Implement proper error handling to gracefully manage potential issues during data retrieval.</li>
+<li><strong>Data Loading States:</strong> Display a loading indicator while the data is being fetched.</li>
+<li><strong>Data Updates:</strong> If your Firestore data changes frequently, consider using real-time listeners (<code>onSnapshot</code>) for more efficient updates.</li>
+<li><strong>Security Rules:</strong> Define appropriate security rules in your Firestore database to control data access.</li>
+<li><strong>Data Validation:</strong> Validate the retrieved data before displaying or using it in your application.</li>
+</ul>
+<p>Remember to replace placeholders like <code>yourCollectionName</code>, <code>field1</code>, <code>field2</code>, and your actual Firebase configuration details with the correct values.</p>
+
+  </article>
+
+  <aside class="blog-toc-mobile">
+    <details>
+      <summary>table of content</summary>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#retrieve-array-from-firebase">Retrieve array from firebase</a></li>
+  </ul>
+</nav>
+    </details>
+  </aside>
+</section>
+
+ </main>
+
+    <div class="tally-form-container">
+  <h3 class="">your feedback</h3>
+  <iframe
+    data-tally-src="https://tally.so/embed/w2R9G9?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+    loading="lazy"
+    width="100%"
+    height="337"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    title="Feedback form"
+  ></iframe>
+</div>
+<script>
+  var d = document,
+    w = "https://tally.so/widgets/embed.js",
+    v = function () {
+      "undefined" != typeof Tally
+        ? Tally.loadEmbeds()
+        : d
+            .querySelectorAll("iframe[data-tally-src]:not([src])")
+            .forEach(function (e) {
+              e.src = e.dataset.tallySrc;
+            });
+    };
+  if ("undefined" != typeof Tally) v();
+  else if (d.querySelector('script[src="' + w + '"]') == null) {
+    var s = d.createElement("script");
+    (s.src = w), (s.onload = v), (s.onerror = v), d.body.appendChild(s);
+  }
+</script>
+
+    <footer class="">
+  <p class="">
+    developed by <strong class="">shuvam khamrui</strong>
+  </p>
+</footer>
+
+
+    
+    
+  </body>
+</html>
